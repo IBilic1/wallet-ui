@@ -1,6 +1,6 @@
 # wallet-ui
 
-This project is for Innovative project 2 course on Algebra University Collage
+This project is for Innovative Project 2 course on Algebra University Collage
 
 ## Available Scripts
 
