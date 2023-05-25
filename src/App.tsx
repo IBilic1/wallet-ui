@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 
 function App() {
@@ -7,10 +7,10 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
-                <p>This digital wallet is cool wallet.</p>
-                <p>
-                    Innovative Project 2
-                </p>
+                <br/>
+                <b>
+                    Innovative project 2 - Team 3
+                </b>
             </header>
         </div>
     );
