@@ -1,0 +1,38 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 16.18.23
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.18.23
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+    
+  deploy:
+    needs:  [build]
+    name: deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Wait for Render Deployment
+        uses:  johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: srv-cgre153k9u56e3m4qab0
+          api-key: jZgFWbAzdJU
