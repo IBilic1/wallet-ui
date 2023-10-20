@@ -1,0 +1,32 @@
+.welcome-component {
+  height: 254px;
+  position: relative;
+  width: 455px;
+}
+
+.welcome-component .p {
+  color: var(--grey-3);
+  font-family: "Poppins", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 26px;
+  position: absolute;
+  top: 165px;
+  width: 388px;
+}
+
+.welcome-component .text-wrapper-3 {
+  color: var(--text-black);
+  font-family: "Poppins", Helvetica;
+  font-size: 56px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 78.4px;
+  position: absolute;
+  top: 67px;
+  white-space: nowrap;
+  width: 315px;
+}

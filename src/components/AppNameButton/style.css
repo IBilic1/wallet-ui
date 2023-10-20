@@ -1,0 +1,29 @@
+.app-name-button {
+  height: 67px;
+  position: relative;
+  width: 322px;
+}
+
+.app-name-button .walletapptemplate {
+  height: 67px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 70px;
+}
+
+.app-name-button .text-wrapper-2 {
+  color: #4e1184;
+  font-family: "Playfair Display", Helvetica;
+  font-size: 36px;
+  font-weight: 500;
+  height: 42px;
+  left: 76px;
+  letter-spacing: -0.54px;
+  line-height: normal;
+  position: absolute;
+  top: 9px;
+  white-space: nowrap;
+  width: 175px;
+}

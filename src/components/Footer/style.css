@@ -1,0 +1,88 @@
+.footer {
+  height: 42px;
+  position: relative;
+  width: 1123px;
+}
+
+.footer .divider {
+  background-color: var(--dark);
+  border: 1px solid;
+  border-color: var(--dark);
+  height: 5px;
+  left: -1px;
+  opacity: 0.06;
+  position: absolute;
+  top: -1px;
+  width: 1125px;
+}
+
+.footer .socials {
+  height: 36px;
+  left: 35px;
+  position: absolute;
+  top: 12px;
+  width: 186px;
+}
+
+.footer .terms-privacy {
+  height: 15px;
+  left: 864px;
+  position: absolute;
+  top: 20px;
+  width: 202px;
+}
+
+.footer .down-menu {
+  align-items: flex-start;
+  display: flex;
+  gap: 40px;
+  height: 15px;
+  position: relative;
+  width: 202px;
+}
+
+.footer .pricing {
+  color: var(--text-black);
+  font-family: "Poppins", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: 18.2px;
+  margin-bottom: -2px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 44px;
+}
+
+.footer .text-wrapper {
+  color: var(--text-black);
+  font-family: "Poppins", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: 18.2px;
+  margin-bottom: -2px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 53px;
+}
+
+.footer .div {
+  color: var(--text-black);
+  font-family: "Poppins", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: 18.2px;
+  margin-bottom: -2px;
+  margin-right: -34.59px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 60px;
+}
