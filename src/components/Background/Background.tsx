@@ -22,8 +22,8 @@ export const Background = ({
 }: Props): JSX.Element => {
   return (
     <div className={`background ${className}`}>
-      <Footer className={footerFooterClassName} dividerClassName={footerDividerClassName} />
-      <div className={`navbar-divider ${navbarDividerClassName}`} />
+      {/*<Footer className={footerFooterClassName} dividerClassName={footerDividerClassName} />*/}
+      {/*<div className={`navbar-divider ${navbarDividerClassName}`} />*/}
     </div>
   );
 };

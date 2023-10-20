@@ -5,6 +5,7 @@ Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcN
 
 import React from "react";
 import "./style.css";
+import socials from "../../assets/img/socials-1.svg";
 import {Box} from "@mui/material";
 
 interface Props {
@@ -15,15 +16,15 @@ interface Props {
 export const Footer = ({ className, dividerClassName }: Props): JSX.Element => {
   return (
     <div className={`footer ${className}`}>
-      <div className={`divider ${dividerClassName}`} />
-      <img className="socials" alt="Socials" src="/src/assets/img/socials-1.svg" />
-      <div className="terms-privacy">
+      {/*<div className={`divider ${dividerClassName}`} />*/}
+      <img className="socials" alt="Socials" src={socials} />
+      <Box component="div" sx={{alignSelf: "end"}} className="terms-privacy">
         <div className="down-menu">
           <div className="pricing">Terms</div>
           <div className="text-wrapper">Privacy</div>
           <div className="div">Cookies</div>
         </div>
-      </div>
+      </Box>
     </div>
   );
 };

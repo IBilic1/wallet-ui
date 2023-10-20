@@ -15,6 +15,7 @@ import "./style.css";
 import MenuAppBar from "../../components/NavBar/MenuAppBar";
 import {amber, deepOrange, grey} from "@mui/material/colors";
 import {PaletteMode} from "@mui/material";
+import {Footer} from "../../components/Footer";
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -85,6 +86,7 @@ export const HomePage = (): JSX.Element => {
               <WelcomeComponent className="welcome-component-instance" />
             </div>
           </div>
+            <Footer className={"design-component-instance-node"} dividerClassName={"background-2"}/>
           {/*<Copyright sx={{ mt: 8, mb: 4 }} />*/}
         </Container>
       </ThemeProvider>
