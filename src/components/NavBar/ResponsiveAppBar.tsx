@@ -12,11 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from "../../assets/img/logo.png";
-import {Image} from "@mui/icons-material";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
+import Stack from "@mui/material/Stack";
 
 const pages = ['Tasks', 'History', 'Store', 'Group'];
 const settings = ['Profile', 'Logout'];
@@ -49,7 +45,7 @@ function ResponsiveAppBar(
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" sx={{background: "#f8f8f8"}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     {/*<FormGroup>*/}
@@ -64,33 +60,32 @@ function ResponsiveAppBar(
                     {/*        label={auth ? 'Logout' : 'Login'}*/}
                     {/*    />*/}
                     {/*</FormGroup>*/}
-                    {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
-                    {/*<Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>*/}
-                    {/*    <img className="image" alt="logo" src={logo} />*/}
-                    {/*</Box>*/}
-                    <Box
-                        component="img"
-                        sx={{ height: "50px", width: "auto",margin:"10px",display: { xs: 'none', md: 'flex' }, mr: 1 }}
-                        alt="logo"
-                        src={logo}
-                    />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'purple',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        Wall-ET
-                    </Typography>
+                    <Stack spacing={2} direction="row" alignItems={"center"}>
+                        <Box
+                            component="img"
+                            sx={{ height: "50px", width: "auto",margin:"10px",display: { xs: 'none', md: 'flex' }, mr: 1 }}
+                            alt="logo"
+                            src={logo}
+                        />
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="a"
+                            href="#app-bar-with-responsive-menu"
+                            sx={{
+                                mr: 2,
+                                display: { xs: 'none', md: 'flex' },
+                                fontFamily: 'monospace',
+                                fontWeight: 700,
+                                letterSpacing: '.3rem',
+                                color: 'purple',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            Wall-ET
+                        </Typography>
+                    </Stack>
+
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
@@ -128,7 +123,6 @@ function ResponsiveAppBar(
                             ))}
                         </Menu>
                     </Box>
-                    {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
                     <Box
                         component="img"
                         sx={{ height: "50px", width: "auto",margin:"10px", display: { xs: 'flex', md: 'none' }, mr: 1 }}
@@ -158,7 +152,7 @@ function ResponsiveAppBar(
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'purple', display: 'block' }}
                             >
                                 {page}
                             </Button>
