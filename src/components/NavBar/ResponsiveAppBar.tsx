@@ -13,6 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from "../../assets/img/logo.png";
 import Stack from "@mui/material/Stack";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
 
 const pages = ['Tasks', 'History', 'Store', 'Group'];
 const settings = ['Profile', 'Logout'];
@@ -58,6 +61,7 @@ function ResponsiveAppBar(
                     {/*            />*/}
                     {/*        }*/}
                     {/*        label={auth ? 'Logout' : 'Login'}*/}
+                    {/*        sx={{color:"purple"}}*/}
                     {/*    />*/}
                     {/*</FormGroup>*/}
                     <Stack spacing={2} direction="row" alignItems={"center"}>
@@ -94,7 +98,7 @@ function ResponsiveAppBar(
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit"
+                            color="primary"
                         >
                             <MenuIcon />
                         </IconButton>
@@ -147,18 +151,20 @@ function ResponsiveAppBar(
                     >
                         Wall-ET
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'purple', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
-                        ))}
-                    </Box>
 
+                    {auth && (
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                            {pages.map((page) => (
+                                <Button
+                                    key={page}
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, color: 'purple', display: 'block' }}
+                                >
+                                    {page}
+                                </Button>
+                            ))}
+                        </Box>
+                    )}
                     <Box sx={{ flexGrow: 0 }}>
                         {auth && (
                             <div>

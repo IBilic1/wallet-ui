@@ -16,7 +16,9 @@ import MenuAppBar from "../../components/NavBar/MenuAppBar";
 import {amber, deepOrange, grey} from "@mui/material/colors";
 import {PaletteMode} from "@mui/material";
 import {Footer} from "../../components/Footer";
-
+import ResponsiveFooter from "../../components/Footer/ResponsiveFooter";
+import GreyFooter from "../../components/Footer/GreyFooter";
+import HomePageContent from "../../components/WelcomeComponent/HomePageContent";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
@@ -67,28 +69,25 @@ export const HomePage = (): JSX.Element => {
       <ThemeProvider theme={customTheme}>
         {/*<MenuAppBar logoPath={logo} name="Wall-ET"/>*/}
         <ResponsiveAppBar logoPath={logo}/>
-        <Container component="main">
           <CssBaseline />
+          <HomePageContent/>
+        {/*<Container component="main">*/}
+        {/*  */}
 
-          <div className="home-page">
-            <div className="overlap-group">
-              <Background
-                  className="background-instance"
-                  footerDividerClassName="background-2"
-                  footerFooterClassName="design-component-instance-node"
-                  navbarDividerClassName="background-3"
-              />
-              <Stack spacing={2} direction="row">
-                  <Button variant="contained" color={"primary"}>LOGIN</Button>
-                  <Button variant="contained" color={"secondary"}>REGISTER</Button>
-              </Stack>
-              <img className="image" alt="Image" src={homePig} />
-              <WelcomeComponent className="welcome-component-instance" />
-            </div>
-          </div>
-            <Footer className={"design-component-instance-node"} dividerClassName={"background-2"}/>
-          {/*<Copyright sx={{ mt: 8, mb: 4 }} />*/}
-        </Container>
+        {/*  <div className="home-page">*/}
+        {/*    <div className="overlap-group">*/}
+        {/*      <Stack spacing={2} direction="row">*/}
+        {/*          <Button variant="contained" color={"primary"}>LOGIN</Button>*/}
+        {/*          <Button variant="contained" color={"secondary"}>REGISTER</Button>*/}
+        {/*      </Stack>*/}
+        {/*      <img className="image" alt="Image" src={homePig} />*/}
+        {/*      <WelcomeComponent className="welcome-component-instance" />*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</Container>*/}
+        {/*<Footer className={"design-component-instance-node"} dividerClassName={"background-2"}/>*/}
+        {/*<ResponsiveFooter/>*/}
+        <GreyFooter/>
       </ThemeProvider>
   );
 };
