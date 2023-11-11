@@ -27,7 +27,16 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 // }
 
 // TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
+const customTheme = createTheme({
+    palette: {
+        primary: {
+            main: "#ff0072",
+        },
+        secondary: {
+            main: "#4e1184",
+        },
+    },
+});
 
 export default function SignIn() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -40,7 +49,7 @@ export default function SignIn() {
     };
 
     return (
-        <ThemeProvider theme={defaultTheme}>
+        <ThemeProvider theme={customTheme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box

@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import {HomePage} from "./screens/HomePage";
 import reportWebVitals from './reportWebVitals';
+import {createTheme} from "@mui/material/styles";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     {/*<App />*/}

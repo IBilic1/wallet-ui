@@ -27,7 +27,16 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 // }
 
 // TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
+const customTheme = createTheme({
+    palette: {
+        primary: {
+            main: "#ff0072",
+        },
+        secondary: {
+            main: "#4e1184",
+        },
+    },
+});
 
 export default function SignUp() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -40,7 +49,7 @@ export default function SignUp() {
     };
 
     return (
-        <ThemeProvider theme={defaultTheme}>
+        <ThemeProvider theme={customTheme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -84,6 +93,16 @@ export default function SignUp() {
                                 <TextField
                                     required
                                     fullWidth
+                                    id="age"
+                                    label="Age"
+                                    name="age"
+                                    autoComplete="age"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
                                     id="email"
                                     label="Email Address"
                                     name="email"
@@ -101,12 +120,12 @@ export default function SignUp() {
                                     autoComplete="new-password"
                                 />
                             </Grid>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                    label="I want to receive inspiration, marketing promotions and updates via email."
-                                />
-                            </Grid>
+                            {/*<Grid item xs={12}>*/}
+                            {/*    <FormControlLabel*/}
+                            {/*        control={<Checkbox value="allowExtraEmails" color="primary" />}*/}
+                            {/*        label="I want to receive inspiration, marketing promotions and updates via email."*/}
+                            {/*    />*/}
+                            {/*</Grid>*/}
                         </Grid>
                         <Button
                             type="submit"

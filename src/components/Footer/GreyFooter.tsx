@@ -21,7 +21,7 @@ const GreyFooter = () => {
     };
 
     return (
-        <Grid container spacing={3} className="footer">
+        <Grid container spacing={3} className="footer" sx={{bottom: "0"}}>
             <Container>
                 <IconButton className="icon" onClick={handleFacebookClick} sx={{border: "1px solid darkgrey", margin: "5px"}}>
                     <Facebook />
@@ -33,16 +33,6 @@ const GreyFooter = () => {
                     <Twitter />
                 </IconButton>
             </Container>
-            {/*<Box component={"div"} >*/}
-            {/*    <Typography variant="body2" color="text.secondary" align="center">*/}
-            {/*        {"Copyright © "}*/}
-            {/*        <Link color="inherit" href="#">*/}
-            {/*            Wall-ET*/}
-            {/*        </Link>{" "}*/}
-            {/*        {new Date().getFullYear()}*/}
-            {/*        {"."}*/}
-            {/*    </Typography>*/}
-            {/*</Box>*/}
             <Container component={"div"} className="linkContainer" sx={{display: "flex", marginRight: "auto", flex: "1"}}>
                 <Link href="#" className="footerLink" sx={{margin:"10px",textDecoration: 'none',}}>
                     Terms

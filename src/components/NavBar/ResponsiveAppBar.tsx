@@ -16,6 +16,9 @@ import Stack from "@mui/material/Stack";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
+import {createRoot} from "react-dom/client";
+import SignUp from "../../screens/RegistrationPage/SignUp";
+import HomePageContent from "../WelcomeComponent/HomePageContent";
 
 const pages = ['Tasks', 'History', 'Store', 'Group'];
 const settings = ['Profile', 'Logout'];
@@ -47,6 +50,13 @@ function ResponsiveAppBar(
         setAnchorElUser(null);
     };
 
+    const handleHomeClick = () => {
+        const root = createRoot(document.getElementById('content') as HTMLElement);
+        root.render(
+            <HomePageContent/>
+        );
+    };
+
     return (
         <AppBar position="static" sx={{background: "#f8f8f8"}}>
             <Container maxWidth="xl">
@@ -64,7 +74,7 @@ function ResponsiveAppBar(
                     {/*        sx={{color:"purple"}}*/}
                     {/*    />*/}
                     {/*</FormGroup>*/}
-                    <Stack spacing={2} direction="row" alignItems={"center"}>
+                    <Stack spacing={2} direction="row" alignItems={"center"} marginRight={"2vw"}>
                         <Box
                             component="img"
                             sx={{ height: "50px", width: "auto",margin:"10px",display: { xs: 'none', md: 'flex' }, mr: 1 }}
@@ -75,7 +85,7 @@ function ResponsiveAppBar(
                             variant="h6"
                             noWrap
                             component="a"
-                            href="#app-bar-with-responsive-menu"
+                            href="#"
                             sx={{
                                 mr: 2,
                                 display: { xs: 'none', md: 'flex' },
@@ -85,6 +95,7 @@ function ResponsiveAppBar(
                                 color: 'purple',
                                 textDecoration: 'none',
                             }}
+                            onClick={handleHomeClick}
                         >
                             Wall-ET
                         </Typography>
