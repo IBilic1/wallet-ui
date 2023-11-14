@@ -4,16 +4,29 @@ import './index.css';
 import App from './App';
 import {HomePage} from "./screens/HomePage";
 import reportWebVitals from './reportWebVitals';
-import {createTheme} from "@mui/material/styles";
+import {createTheme, ThemeProvider} from "@mui/material/styles";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const customTheme = createTheme({
+    palette: {
+        primary: {
+            main: "#F0576E",
+        },
+        secondary: {
+            main: "#9852EC",
+        },
+    },
+});
+
 root.render(
   <React.StrictMode>
     {/*<App />*/}
-      <HomePage/>
+      <ThemeProvider theme={customTheme}>
+          <HomePage/>
+      </ThemeProvider>
   </React.StrictMode>
 );
 

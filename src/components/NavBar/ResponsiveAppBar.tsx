@@ -19,9 +19,21 @@ import Switch from "@mui/material/Switch";
 import {createRoot} from "react-dom/client";
 import SignUp from "../../screens/RegistrationPage/SignUp";
 import HomePageContent from "../WelcomeComponent/HomePageContent";
+import {createTheme, ThemeProvider} from "@mui/material/styles";
 
 const pages = ['Tasks', 'History', 'Store', 'Group'];
 const settings = ['Profile', 'Logout'];
+
+const customTheme = createTheme({
+    palette: {
+        primary: {
+            main: "#F0576E",
+        },
+        secondary: {
+            main: "#9852EC",
+        },
+    },
+});
 
 function ResponsiveAppBar(
     logoPath : any = "../../assets/img/logo.png"
@@ -53,7 +65,9 @@ function ResponsiveAppBar(
     const handleHomeClick = () => {
         const root = createRoot(document.getElementById('content') as HTMLElement);
         root.render(
-            <HomePageContent/>
+            <ThemeProvider theme={customTheme}>
+                <HomePageContent/>
+            </ThemeProvider>
         );
     };
 
@@ -92,7 +106,7 @@ function ResponsiveAppBar(
                                 fontFamily: 'monospace',
                                 fontWeight: 700,
                                 letterSpacing: '.3rem',
-                                color: 'purple',
+                                color: '#9852EC',
                                 textDecoration: 'none',
                             }}
                             onClick={handleHomeClick}
@@ -156,7 +170,7 @@ function ResponsiveAppBar(
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: 'purple',
+                            color: '#9852EC',
                             textDecoration: 'none',
                         }}
                     >

@@ -10,10 +10,10 @@ import GreyFooter from "../Footer/GreyFooter";
 const customTheme = createTheme({
     palette: {
         primary: {
-            main: "#ff0072",
+            main: "#F0576E",
         },
         secondary: {
-            main: "#4e1184",
+            main: "#9852EC",
         },
     },
 });

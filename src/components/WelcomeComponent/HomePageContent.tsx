@@ -9,16 +9,36 @@ import {HomePage} from "../../screens/HomePage";
 import SignIn from "../../screens/RegistrationPage/SignIn";
 import SignUp from "../../screens/RegistrationPage/SignUp";
 import Layout from "../Layout/Layout";
+import {createTheme, ThemeProvider} from "@mui/material/styles";
+
+const customTheme = createTheme({
+    palette: {
+        primary: {
+            main: "#F0576E",
+        },
+        secondary: {
+            main: "#9852EC",
+        },
+    },
+});
 
 const HomePageContent = () => {
     const handleLoginClick = () => {
         const root = createRoot(document.getElementById('content') as HTMLElement);
-        root.render(<SignIn />);
+        root.render(
+            <ThemeProvider theme={customTheme}>
+                <SignIn />
+            </ThemeProvider>
+        );
     };
 
     const handleRegisterClick = () => {
         const root = createRoot(document.getElementById('content') as HTMLElement);
-        root.render(<SignUp />);
+        root.render(
+            <ThemeProvider theme={customTheme}>
+                <SignUp />
+            </ThemeProvider>
+        );
     };
 
     return (

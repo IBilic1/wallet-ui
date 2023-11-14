@@ -27,16 +27,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 // }
 
 // TODO remove, this demo shouldn't need to reset the theme.
-const customTheme = createTheme({
-    palette: {
-        primary: {
-            main: "#ff0072",
-        },
-        secondary: {
-            main: "#4e1184",
-        },
-    },
-});
+
 
 export default function SignIn() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -49,7 +40,6 @@ export default function SignIn() {
     };
 
     return (
-        <ThemeProvider theme={customTheme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -60,7 +50,7 @@ export default function SignIn() {
                         alignItems: 'center',
                     }}
                 >
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                    <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
@@ -115,6 +105,5 @@ export default function SignIn() {
                 </Box>
                 {/*<Copyright sx={{ mt: 8, mb: 4 }} />*/}
             </Container>
-        </ThemeProvider>
     );
 }
