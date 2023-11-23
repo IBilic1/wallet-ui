@@ -1,15 +1,15 @@
 .background {
-  background-color: #f8f8f8;
-  border-radius: 31px;
+    background-color: #f8f8f8;
+    border-radius: 31px;
 }
 
 .background .navbar-divider {
-  background-color: var(--dark);
-  border: 1px solid;
-  border-color: var(--dark);
-  height: 5px;
-  left: -1px;
-  opacity: 0.06;
-  position: absolute;
-  top: 88px;
+    background-color: var(--dark);
+    border: 1px solid;
+    border-color: var(--dark);
+    height: 5px;
+    left: -1px;
+    opacity: 0.06;
+    position: absolute;
+    top: 88px;
 }

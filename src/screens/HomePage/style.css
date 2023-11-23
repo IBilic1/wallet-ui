@@ -1,128 +1,128 @@
 .home-page {
-  height: 805px;
-  overflow: hidden;
-  width: 1123px;
+    height: 805px;
+    overflow: hidden;
+    width: 1123px;
 }
 
 .home-page .overlap-group {
-  border-radius: 31px;
-  height: 805px;
-  left: -1px;
-  position: relative;
+    border-radius: 31px;
+    height: 805px;
+    left: -1px;
+    position: relative;
 }
 
 .home-page .background-instance {
-  left: 0 !important;
-  position: absolute !important;
-  top: 0 !important;
+    left: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
 }
 
 .home-page .design-component-instance-node {
-  background-color: transparent !important;
-  left: 0 !important;
-  position: absolute !important;
-  top: 734px !important;
+    background-color: transparent !important;
+    left: 0 !important;
+    position: absolute !important;
+    top: 734px !important;
 }
 
 .home-page .background-2 {
-  height: 6px !important;
-  left: -2px !important;
-  top: -2px !important;
-  width: 1126px !important;
+    height: 6px !important;
+    left: -2px !important;
+    top: -2px !important;
+    width: 1126px !important;
 }
 
 .home-page .background-3 {
-  height: 6px !important;
-  left: -2px !important;
-  width: 1126px !important;
+    height: 6px !important;
+    left: -2px !important;
+    width: 1126px !important;
 }
 
 .home-page .button {
-  all: unset;
-  background-color: #4e1184;
-  border-radius: 6px;
-  box-sizing: border-box;
-  height: 52px;
-  left: 185px;
-  position: absolute;
-  top: 457px;
-  width: 120px;
+    all: unset;
+    background-color: #4e1184;
+    border-radius: 6px;
+    box-sizing: border-box;
+    height: 52px;
+    left: 185px;
+    position: absolute;
+    top: 457px;
+    width: 120px;
 }
 
 .home-page .login {
-  color: #ffffff;
-  font-family: "Roboto", Helvetica;
-  font-size: 13px;
-  font-weight: 900;
-  height: 15px;
-  left: 26px;
-  letter-spacing: 0.52px;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 18px;
-  white-space: nowrap;
+    color: #ffffff;
+    font-family: "Roboto", Helvetica;
+    font-size: 13px;
+    font-weight: 900;
+    height: 15px;
+    left: 26px;
+    letter-spacing: 0.52px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 18px;
+    white-space: nowrap;
 }
 
 .home-page .login-wrapper {
-  all: unset;
-  background-color: #ff0072;
-  border-radius: 6px;
-  box-sizing: border-box;
-  height: 52px;
-  left: 38px;
-  position: absolute;
-  top: 457px;
-  width: 120px;
+    all: unset;
+    background-color: #ff0072;
+    border-radius: 6px;
+    box-sizing: border-box;
+    height: 52px;
+    left: 38px;
+    position: absolute;
+    top: 457px;
+    width: 120px;
 }
 
 .home-page .login-2 {
-  color: #ffffff;
-  font-family: "Roboto", Helvetica;
-  font-size: 13px;
-  font-weight: 900;
-  height: 15px;
-  left: 38px;
-  letter-spacing: 0.52px;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 18px;
-  white-space: nowrap;
+    color: #ffffff;
+    font-family: "Roboto", Helvetica;
+    font-size: 13px;
+    font-weight: 900;
+    height: 15px;
+    left: 38px;
+    letter-spacing: 0.52px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 18px;
+    white-space: nowrap;
 }
 
 .home-page .image {
-  height: 546px;
-  left: 516px;
-  object-fit: cover;
-  position: absolute;
-  top: 141px;
-  width: 546px;
+    height: 546px;
+    left: 516px;
+    object-fit: cover;
+    position: absolute;
+    top: 141px;
+    width: 546px;
 }
 
 .home-page .app-name-button-instance {
-  height: 73px !important;
-  left: 48px !important;
-  position: absolute !important;
-  top: 16px !important;
-  width: 320px !important;
+    height: 73px !important;
+    left: 48px !important;
+    position: absolute !important;
+    top: 16px !important;
+    width: 320px !important;
 }
 
 .home-page .app-name-button-2 {
-  height: 73px !important;
-  width: 69px !important;
+    height: 73px !important;
+    width: 69px !important;
 }
 
 .home-page .app-name-button-3 {
-  height: 46px !important;
-  left: 75px !important;
-  top: 10px !important;
-  white-space: unset !important;
-  width: 174px !important;
+    height: 46px !important;
+    left: 75px !important;
+    top: 10px !important;
+    white-space: unset !important;
+    width: 174px !important;
 }
 
 .home-page .welcome-component-instance {
-  left: 37px !important;
-  position: absolute !important;
-  top: 148px !important;
+    left: 37px !important;
+    position: absolute !important;
+    top: 148px !important;
 }

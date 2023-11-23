@@ -1,28 +1,18 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
+import React from 'react'
 
-import PropTypes from "prop-types";
-import React from "react";
-import "./style.css";
-import logo from "../../assets/img/logo.png"
+import './style.css'
 
 interface Props {
-  className: any;
-  walletapptemplateClassName: any;
+  className: string;
+  walletapptemplateClassName: string;
   walletapptemplate: string;
-  divClassName: any;
+  divClassName: string;
 }
 
-export const AppNameButton = ({
-  className,
-  walletapptemplateClassName,
-  walletapptemplate = "../../assets/img/logo.png",
-  divClassName,
-}: Props): JSX.Element => {
+export default function AppNameButton({ className, walletapptemplateClassName, walletapptemplate = "../../assets/img/logo.png", divClassName }: Props): JSX.Element {
   return (
     <div className={`app-name-button ${className}`}>
+
       <img
         className={`walletapptemplate ${walletapptemplateClassName}`}
         alt="Walletapptemplate"
@@ -31,8 +21,4 @@ export const AppNameButton = ({
       <div className={`text-wrapper-2 ${divClassName}`}>Wall-ET</div>
     </div>
   );
-};
-
-AppNameButton.propTypes = {
-  walletapptemplate: PropTypes.string,
-};
+}
