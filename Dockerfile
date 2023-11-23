@@ -1,7 +1,7 @@
 FROM node:alpine
-WORKDIR /app
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --legacy-peer-deps
-COPY ./ ./
-CMD ["npm", "start"]
+
+WORKDIR /usr/src/app
+COPY package.json yarn.lock ./
+RUN yarn
+COPY . ./
+RUN yarn start
