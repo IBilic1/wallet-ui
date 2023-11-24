@@ -7,8 +7,7 @@ ENV NODE_ENV=production
 
 COPY . .
 COPY app/.env   app/.env
-RUN rm -rf node_modules && \
-  yarn install --production=true
+RUN rm -rf node_modules && yarn install --production=true
 
 RUN yarn build
   
