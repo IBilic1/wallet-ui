@@ -1,14 +1,20 @@
 import React from "react";
 
 import "./style.css";
+import background from "../../assets/img/backgroundWave3.svg"
 
-interface Props {
-  className: string;
-}
+export default function Background(props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactPortal | null | undefined; }) {
+  const containerStyle = {
+    width: '100%',
+    height: '150vh',
+    background: `url(${background}) no-repeat center center fixed`,
+    backgroundSize: 'cover',
+  };
 
-export default function Background({ className }: Props): JSX.Element {
   return (
-    <div className={`background ${className}`}>
-    </div>
+      <div style={containerStyle}>
+        {props.children}
+      </div>
   );
 }
+

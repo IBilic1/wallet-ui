@@ -71,6 +71,7 @@ export default function SignIn() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          padding: "20px",
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
