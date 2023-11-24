@@ -8,7 +8,7 @@ ENV NODE_ENV=production
 COPY . .
 
 RUN rm -rf node_modules && \
-  yarn install -g serve
+  yarn install
 
 RUN yarn build
 
