@@ -3,13 +3,15 @@ FROM node:lts as builder
 WORKDIR /app
 
 ENV NODE_OPTIONS=--openssl-legacy-provider
+ENV NODE_ENV=production
 
 COPY . .
 
-RUN yarn install
+RUN rm -rf node_modules && \
+  yarn install --production=true
 
 RUN yarn build
-
+  
 FROM node:lts
 
 WORKDIR /app
