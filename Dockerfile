@@ -13,7 +13,7 @@ COPY . .
 # Build the React app for production
 RUN yarn build
 
-FROM nginx:latest
+FROM nginxinc/nginx-unprivileged:latest
 
 # Copy the built React app from the build stage
 COPY --from=build /app/build /usr/share/nginx/html
