@@ -13,25 +13,14 @@ import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
 import logo from '../../assets/img/logo.png'
 import Stack from '@mui/material/Stack'
-import { createRoot } from 'react-dom/client'
-import HomePageContent from '../WelcomeComponent/HomePageContent'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { useNavigate } from 'react-router-dom'
 
 const pages = ['Tasks', 'History', 'Store', 'Group']
 const settings = ['Profile', 'Logout']
 
-const customTheme = createTheme({
-  palette: {
-    primary: {
-      main: '#F0576E',
-    },
-    secondary: {
-      main: '#9852EC',
-    },
-  },
-})
-
 function ResponsiveAppBar() {
+  const navigate = useNavigate()
+
   const [auth] = React.useState(true)
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null)
@@ -52,12 +41,7 @@ function ResponsiveAppBar() {
   }
 
   const handleHomeClick = () => {
-    const root = createRoot(document.getElementById('content') as HTMLElement)
-    root.render(
-      <ThemeProvider theme={customTheme}>
-        <HomePageContent />
-      </ThemeProvider>,
-    )
+    navigate('/home')
   }
 
   return (
