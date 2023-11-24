@@ -12,14 +12,12 @@ RUN rm -rf node_modules && \
 
 RUN yarn build
   
-FROM nginx:1.21.0-alpine as production
-ENV NODE_ENV production
+FROM node:lts
+ENV NODE_ENV=production
+WORKDIR /app
 
-# Copy built assets from builder
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app  .
 
-# Expose port
 EXPOSE 3000
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "yarn", "start" ]
