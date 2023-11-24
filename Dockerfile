@@ -1,7 +1,28 @@
-FROM node:16.0.0
+FROM node:lts as builder
 
-WORKDIR /usr/src/app
-COPY package.json yarn.lock ./
-RUN yarn
-COPY . ./
-RUN yarn start
+WORKDIR /app
+
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
+COPY . .
+
+RUN yarn install
+
+RUN yarn build
+
+RUN rm -rf node_modules && \
+  NODE_ENV=production yarn install \
+  --prefer-offline \
+  --pure-lockfile \
+  --non-interactive \
+  --production=true
+
+FROM node:lts
+
+WORKDIR /app
+
+COPY --from=builder /app  .
+
+EXPOSE 3000
+
+CMD [ "yarn", "start" ]
