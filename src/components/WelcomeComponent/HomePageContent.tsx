@@ -1,68 +1,45 @@
-import React from "react";
+import React from 'react'
 
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import homePig from "../../assets/img/homePig.png";
-import { createRoot } from "react-dom/client";
-import SignIn from "../../screens/RegistrationPage/SignIn";
-import SignUp from "../../screens/RegistrationPage/SignUp";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-const customTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#F0576E"
-    },
-    secondary: {
-      main: "#9852EC"
-    }
-  }
-});
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import homePig from '../../assets/img/homePig.png'
+import { useNavigate } from 'react-router-dom'
 
 export default function HomePageContent() {
+  const navigate = useNavigate()
+
   const handleLoginClick = () => {
-    const root = createRoot(document.getElementById("content") as HTMLElement);
-    root.render(
-      <ThemeProvider theme={customTheme}>
-        <SignIn />
-      </ThemeProvider>
-    );
-  };
+    navigate('/sign-in')
+  }
 
   const handleRegisterClick = () => {
-    const root = createRoot(document.getElementById("content") as HTMLElement);
-    root.render(
-      <ThemeProvider theme={customTheme}>
-        <SignUp />
-      </ThemeProvider>
-    );
-  };
+    navigate('/sign-up')
+  }
 
-  console.log(123)
   return (
-    <Grid container spacing={2} id="content">
-      <Grid item xs={12} sm={6} style={{ display: "flex", alignItems: "center", padding: "50px" }}>
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100%" }}>
-          <Typography variant="h2" gutterBottom sx={{ fontWeight: "400", fontFamily: "Poppins" }}>
+    <Grid container spacing={2} id='content'>
+      <Grid item xs={12} sm={6} style={{ display: 'flex', alignItems: 'center', padding: '50px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
+          <Typography variant='h2' gutterBottom sx={{ fontWeight: '400', fontFamily: 'Poppins' }}>
             Welcome!
           </Typography>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant='body1' gutterBottom>
             Wall-ET is an app for educating children on the use of money
           </Typography>
-          <div style={{ display: "flex", marginTop: 20 }}>
-            <Button variant="contained" color="primary" style={{ marginRight: 10 }} onClick={handleLoginClick}>
+          <div style={{ display: 'flex', marginTop: 20 }}>
+            <Button variant='contained' color='primary' style={{ marginRight: 10 }} onClick={handleLoginClick}>
               LOGIN
             </Button>
-            <Button variant="contained" color="secondary" style={{ marginLeft: 10 }} onClick={handleRegisterClick}>
+            <Button variant='contained' color='secondary' style={{ marginLeft: 10 }} onClick={handleRegisterClick}>
               REGISTER
             </Button>
           </div>
         </div>
       </Grid>
       <Grid item xs={12} sm={6}>
-        <img src={homePig} alt="placeholder" style={{ width: "100%", maxHeight: "100%", objectFit: "cover" }} />
+        <img src={homePig} alt='placeholder' style={{ width: '100%', maxHeight: '100%', objectFit: 'cover' }} />
       </Grid>
     </Grid>
-  );
+  )
 }

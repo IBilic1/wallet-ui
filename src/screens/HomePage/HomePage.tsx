@@ -5,6 +5,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./style.css";
 import GreyFooter from "../../components/Footer/GreyFooter";
 import HomePageContent from "../../components/WelcomeComponent/HomePageContent";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import SignIn from "../RegistrationPage/SignIn";
+import SignUp from "../RegistrationPage/SignUp";
+import { SnackbarProvider } from 'notistack'
 
 const customTheme = createTheme({
   palette: {
@@ -19,12 +23,20 @@ const customTheme = createTheme({
 
 export const HomePage = (): JSX.Element => {
   return (
-
-    <ThemeProvider theme={customTheme}>
-      <ResponsiveAppBar />
-      <CssBaseline />
-      <HomePageContent />
-      <GreyFooter />
-    </ThemeProvider>
+  <BrowserRouter>
+        <ThemeProvider theme={customTheme}>
+          <SnackbarProvider>
+          <ResponsiveAppBar />
+          <CssBaseline />
+          <Routes>
+            <Route path="/" element={<Navigate to="home"/>}/>
+            <Route path="home" element={<HomePageContent/>}/>
+            <Route path="sign-in" element={<SignIn/>}/>
+            <Route path="sign-up" element={<SignUp/>}/>
+          </Routes>
+          <GreyFooter />
+          </SnackbarProvider>
+      </ThemeProvider>
+  </BrowserRouter>
   );
 };
