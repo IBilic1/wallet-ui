@@ -6,7 +6,7 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 ENV NODE_ENV=production
 
 COPY . .
-COPY app/.env   app/.env
+
 RUN rm -rf node_modules && yarn install --production=true
 
 RUN yarn build
