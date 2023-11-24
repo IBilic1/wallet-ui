@@ -6,7 +6,9 @@ RUN yarn
 COPY . ./
 RUN yarn build
 
-FROM bitnami/nginx:latest
-COPY --from=builder /usr/src/app/build /app
-EXPOSE 8080
-CMD ["nginx", "-g", "daemon off;"]
+#Stage 2
+FROM nginx:1.19.0
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app/build .
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
