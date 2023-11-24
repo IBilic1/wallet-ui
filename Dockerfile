@@ -6,13 +6,19 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 ENV NODE_ENV=production
 
 COPY . .
+RUN rm -Rf app/.env.development
 
 RUN rm -rf node_modules && \
-  yarn install
+  yarn install --production=true
 
 RUN yarn build
+  
+FROM node:lts
+ENV NODE_ENV=production
+WORKDIR /app
 
-FROM nginx:stable-alpine
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app  .
+
 EXPOSE 3000
-CMD ["nginx", "-g", "daemon off;"]
+
+CMD [ "yarn", "start" ]
