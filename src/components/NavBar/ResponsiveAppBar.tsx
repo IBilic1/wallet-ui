@@ -16,7 +16,11 @@ import Stack from '@mui/material/Stack'
 import { useNavigate } from 'react-router-dom'
 
 const pages = ['Tasks', 'History', 'Store', 'Group']
-const settings = ['Profile', 'Logout']
+// const settings = ['Profile', 'Logout']
+const settings = [
+    {'name':"Profile","url":"/profile"},
+    {'name':"Logout","url":"/logout"}
+]
 
 function ResponsiveAppBar() {
   const navigate = useNavigate()
@@ -44,8 +48,15 @@ function ResponsiveAppBar() {
     navigate('/home')
   }
 
+    const appBarStyle = {
+        position: 'fixed',
+        top: 0,
+        width: '100%',
+        zIndex: 1000, // Adjust the z-index as needed
+    };
+
   return (
-    <AppBar position='static' sx={{ background: '#f8f8f8' }}>
+    <AppBar position='static' sx={{ background: '#f8f8f8', ...appBarStyle }}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Stack spacing={2} direction='row' alignItems={'center'} marginRight={'2vw'}>
@@ -128,7 +139,7 @@ function ResponsiveAppBar() {
             variant='h5'
             noWrap
             component='a'
-            href='#app-bar-with-responsive-menu'
+            href='/home'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -181,8 +192,10 @@ function ResponsiveAppBar() {
                   onClose={handleCloseUserMenu}
                 >
                   {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign='center'>{setting}</Typography>
+                    <MenuItem key={setting.name} onClick={
+                        event => navigate(setting.url)
+                    }>
+                      <Typography textAlign='center'>{setting.name}</Typography>
                     </MenuItem>
                   ))}
                 </Menu>

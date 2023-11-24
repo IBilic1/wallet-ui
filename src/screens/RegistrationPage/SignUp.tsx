@@ -80,6 +80,7 @@ export default function SignUp() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          padding: "20px",
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -98,7 +99,6 @@ export default function SignUp() {
                 fullWidth
                 id='firstName'
                 label='First Name'
-                autoFocus
               />
               <Typography variant='body2' color='error'
                           sx={{ paddingLeft: 2, fontSize: '0.8rem', marginTop: '0.5rem' }}>
@@ -147,6 +147,20 @@ export default function SignUp() {
                           sx={{ paddingLeft: 2, fontSize: '0.8rem', marginTop: '0.5rem' }}>
                 {formErrors.password}
               </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                  fullWidth
+                  id='age'
+                  label='Age'
+                  name='age'
+                  type={"date"}
+                  autoFocus
+              />
+              {/*<Typography variant='body2' color='error'*/}
+              {/*            sx={{ paddingLeft: 2, fontSize: '0.8rem', marginTop: '0.5rem' }}>*/}
+              {/*  Missing Age*/}
+              {/*</Typography>*/}
             </Grid>
           </Grid>
           <Button

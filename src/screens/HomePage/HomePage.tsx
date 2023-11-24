@@ -12,6 +12,11 @@ import { SnackbarProvider } from 'notistack'
 import "../../assets/fonts/CustomFonts.css"
 import createTypography from "@mui/material/styles/createTypography";
 import createPalette from "@mui/material/styles/createPalette";
+import Profile from "../ProfilePage/Profile";
+import Background from "../../components/Background/Background";
+import ContactUs from "../../components/FooterLinks/ContactUs";
+import Pricing from "../../components/FooterLinks/Pricing";
+import AboutUs from "../../components/FooterLinks/AboutUs";
 
 
 // https://www.realtimecolors.com/?colors=25032b-fdf6fe-b454c6-edaaf9-2bc70f&fonts=Young%20Serif-Young%20Serif
@@ -52,22 +57,39 @@ const customTheme = createTheme({
   })
 });
 
-export const HomePage = (): JSX.Element => {
+export function HomePage() {
+
+  const appBarHeight = 64; // Replace with the actual height of your AppBar
+  const footerHeight = 100; // Replace with the actual height of your AppBar
+
+  const contentStyle = {
+    marginTop: appBarHeight,
+    paddingBottom: footerHeight,
+  };
+
   return (
   <BrowserRouter>
         <ThemeProvider theme={workTheme}>
           <SnackbarProvider>
           <ResponsiveAppBar />
           <CssBaseline />
-          <Routes>
-            <Route path="/" element={<Navigate to="home"/>}/>
-            <Route path="home" element={<HomePageContent/>}/>
-            <Route path="sign-in" element={<SignIn/>}/>
-            <Route path="sign-up" element={<SignUp/>}/>
-          </Routes>
+            <Background>
+              <div style={contentStyle}>
+                <Routes>
+                  <Route path="/" element={<Navigate to="home"/>}/>
+                  <Route path="home" element={<HomePageContent/>}/>
+                  <Route path="sign-in" element={<SignIn/>}/>
+                  <Route path="sign-up" element={<SignUp/>}/>
+                  <Route path="profile" element={<Profile/>}/>
+                  <Route path="contact" element={<ContactUs/>}/>
+                  <Route path="pricing" element={<Pricing/>}/>
+                  <Route path="about" element={<AboutUs/>}/>
+                </Routes>
+              </div>
+            </Background>
           <GreyFooter />
           </SnackbarProvider>
       </ThemeProvider>
   </BrowserRouter>
   );
-};
+}
