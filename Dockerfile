@@ -8,16 +8,7 @@ ENV NODE_ENV=production
 COPY . .
 
 RUN rm -rf node_modules && \
-  yarn install --production=true
+  yarn install -g serve
 
 RUN yarn build
-  
-FROM node:lts
-ENV NODE_ENV=production
-WORKDIR /app
-
-COPY --from=builder /app  .
-
-EXPOSE 3000
-
-CMD [ "yarn", "start" ]
+CMD [ "serve", "-s", "build" ]
