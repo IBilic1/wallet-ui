@@ -1,19 +1,19 @@
 # Use an official Node.js runtime as a parent image
-FROM node:14-alpine as build
+FROM node:latest as build
 
 WORKDIR /app
 
 # Copy package.json and yarn.lock to the working directory
 COPY package.json yarn.lock ./
 
-RUN yarn install --frozen-lockfile
+RUN yarn install
 
 COPY . .
 
 # Build the React app for production
 RUN yarn build
 
-FROM nginx:alpine
+FROM nginx:latest
 
 # Create a non-root user to run Nginx
 RUN adduser -D -u 1001 nginx-user
