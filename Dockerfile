@@ -1,23 +1,12 @@
-FROM node:lts as builder
+FROM node:18.14.0-alpine3.17
 
-WORKDIR /app
-
-ENV NODE_OPTIONS=--openssl-legacy-provider
-ENV NODE_ENV=production
-
-COPY . .
-
-RUN rm -rf node_modules && \
-  yarn install --production=true
-
+WORKDIR /usr/src/app
+COPY package.json yarn.lock ./
+RUN yarn
+COPY . ./
 RUN yarn build
-  
-FROM node:lts
-ENV NODE_ENV=production
-WORKDIR /app
 
-COPY --from=builder /app  .
-
-EXPOSE 3000
-
-CMD [ "yarn", "start" ]
+FROM bitnami/nginx:latest
+COPY --from=builder /usr/src/app/build /app
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
