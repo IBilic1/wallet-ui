@@ -9,7 +9,7 @@ import Grid from "@mui/material/Grid";
 export default function GreyFooter() {
 
   return (
-    <Grid container spacing={3} className="footer" sx={{ bottom: "0" }}>
+    <Grid container spacing={3} className="footer" sx={{ bottom: "0"}}>
       <Container>
         <IconButton className="icon" sx={{ border: "1px solid darkgrey", margin: "5px" }}>
           <Facebook />
