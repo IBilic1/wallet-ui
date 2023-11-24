@@ -1,25 +1,23 @@
-# Use an official Node.js runtime as a parent image
-FROM node:latest as build
+FROM node:lts as builder
 
 WORKDIR /app
 
-# Copy package.json and yarn.lock to the working directory
-COPY package.json yarn.lock ./
-
-RUN yarn install
+ENV NODE_OPTIONS=--openssl-legacy-provider
+ENV NODE_ENV=production
 
 COPY . .
+COPY app/.env   app/.env
+RUN rm -rf node_modules && \
+  yarn install --production=true
 
-# Build the React app for production
 RUN yarn build
+  
+FROM node:lts
+ENV NODE_ENV=production
+WORKDIR /app
 
-FROM nginxinc/nginx-unprivileged:latest
+COPY --from=builder /app  .
 
-# Copy the built React app from the build stage
-COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 3000
 
-# Expose port 80
-EXPOSE 8080
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "yarn", "start" ]
