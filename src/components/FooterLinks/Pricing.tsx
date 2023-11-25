@@ -16,7 +16,8 @@ const pricingStrategies = [
             'Chores divided into max 3 categories.',
         ],
         users: 'Maximum 4',
-        lengthOfSubscription: 'Free of charge',
+        lengthOfSubscription: '/',
+        price: 'Free of charge',
     },
     {
         type: 'PREMIUM',
@@ -31,8 +32,9 @@ const pricingStrategies = [
             'Calendar for planning chores.',
             'Goal setting for savings, chores, and earnings.',
         ],
-        users: 'Renewed monthly',
-        lengthOfSubscription: 'Price between $5-$15, $15-$30, $30-$100',
+        users: "/",
+        lengthOfSubscription: 'Renewed monthly',
+        price: 'Price between $5-$15, $15-$30, $30-$100',
     },
     {
         type: 'FAMILY PACKAGE MODEL',
@@ -71,7 +73,7 @@ const Pricing = () => {
         <Grid container spacing={4} padding="1em">
             {pricingStrategies.map((strategy) => (
                 <Grid item key={strategy.type} xs={12} md={4}>
-                    <Paper elevation={3} style={{ backgroundColor: getBoxColor({type: strategy.type}), padding: '1rem', height: '100%' }}>
+                    <Paper elevation={3} style={{ backgroundColor: getBoxColor({type: strategy.type}), marginLeft:'1em',marginRight:'1em', padding: '1rem', height: '100%' }}>
                         <Typography variant="h5" fontWeight="bold" marginBottom="1rem">
                             {strategy.type}
                         </Typography>
