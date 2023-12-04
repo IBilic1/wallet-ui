@@ -19,6 +19,10 @@ export default function HomePageContent() {
     navigate('/sign-up')
   }
 
+    const learnMoreClick = () => {
+        navigate('/learn-more')
+    }
+
   return (
         <Grid container spacing={2} id='content'>
           <Grid item xs={12} sm={6} style={{ display: 'flex', alignItems: 'center', padding: '50px' }}>
@@ -37,6 +41,9 @@ export default function HomePageContent() {
                 <Button variant='contained' color='secondary' style={{ marginLeft: 10 }} onClick={handleRegisterClick}>
                   REGISTER
                 </Button>
+                <Button variant='contained' color='info' style={{ marginLeft: 10 }} onClick={learnMoreClick}>
+                  Learn more
+                </Button>
               </div>
             </div>
           </Grid>
@@ -44,8 +51,8 @@ export default function HomePageContent() {
             <img src={homePig} alt='placeholder' style={{ width: '100%', height: '100vh', objectFit: 'fill' }} />
           </Grid>
 
-          <ContactUs/>
-          <Pricing/>
+          {/*<ContactUs/>*/}
+          {/*<Pricing/>*/}
         </Grid>
   )
 }
