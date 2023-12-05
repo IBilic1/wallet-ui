@@ -107,9 +107,27 @@ const Pricing = () => {
                             transition: 'transform 0.3s ease', // Add smooth transition for transform
                             transform: index === selectedIndex ? 'scale(1.05)' : 'scale(1)', // Scale on hover
                             transformOrigin: 'center', // Set the transform origin to the center
-
                         }}
                     >
+                        {index===1 && (
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    top: '0',
+                                    right: "0",
+                                    backgroundColor: theme.palette.primary.main,
+                                    padding: '0.3rem',
+                                    borderRadius: '0.3rem',
+                                    color: 'white',
+                                    fontWeight: 'bold',
+                                    fontSize: '1.4rem', // Increase font size
+                                    transform: index === selectedIndex ? 'rotate(380deg)' : 'rotate(20deg)', // Rotate on hover,
+                                    transition: 'transform 0.3s ease',
+                                }}
+                            >
+                                Popular
+                            </div>
+                        )}
                         <Typography variant="h5" fontWeight="bold" marginBottom="1rem" style={{textAlign: "center"}}>
                             {strategy.type}
                         </Typography>
@@ -134,7 +152,7 @@ const Pricing = () => {
                                 <strong>Price:</strong> {strategy.price}
                             </Typography>
                         )}
-                        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: "100%", top: '1rem'}}>
                             <GradientButton color1={theme.palette.secondary.main} color2={theme.palette.secondary.main} onClick={()=>{}}>Get started now</GradientButton>
                         </div>
                     </Paper>

@@ -19,7 +19,7 @@ export const GradientButton: React.FC<GradientButtonProps> = ({ color1, color2, 
             padding: '10px 20px',
             margin: '10px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            transition: "box-shadow 0.3s ease, transform 0.3s ease;" /* Specify both transitions */
+            transition: "transform 0.3s ease, box-shadow 0.3s ease" /* Specify both transitions */
     };
 
     return (

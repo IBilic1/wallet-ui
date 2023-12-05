@@ -22,6 +22,7 @@ import {
     Security
 } from "@mui/icons-material";
 import Newsletter from "./Newsletter";
+import Pricing from "../FooterLinks/Pricing";
 
 const ProductPage = () => {
 
@@ -99,8 +100,13 @@ const ProductPage = () => {
 
             <Divider sx={{ backgroundColor: theme.palette.secondary.main, marginBottom: '20px' }} />
 
-            <ContactUs />
+            <div style={{ width: '150%', margin: '0 -25%', textAlign: 'start' }}>
+                <Pricing/>
+            </div>
 
+            <Divider sx={{ backgroundColor: theme.palette.secondary.main, marginBottom: '20px' }} />
+
+            <ContactUs />
             <Newsletter/>
 
         </Container>
