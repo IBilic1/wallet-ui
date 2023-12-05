@@ -15,7 +15,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, quote, role, im
         <Grid item xs={12} sm={6} md={4} style={{ height: '100%', marginBottom: '10px' }}>
             <Card style={{ backgroundColor: theme.palette.background.default, height: '100%'}}>
                 <CardContent>
-                    <Box display="flex" alignItems="center" justifyContent="center" marginBottom="15px">
+                    <Box display="flex" alignItems="center" justifyContent="center">
                         <Avatar sx={{ width: 80, height: 80 }} alt={name} src={imagePath} />
                     </Box>
                     <Typography variant="subtitle2" style={{ marginTop: '15px', overflow: 'hidden', textOverflow: 'ellipsis' }}>

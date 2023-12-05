@@ -65,8 +65,8 @@ const ProductPage = () => {
     const testimonials = [
         { name: 'Zvonimir', role: 'Guardian', quote: "I want to make sure my grandsons learn the value of money and develop good financial habits for their future.", imagePath: {ZvonimirPath}.ZvonimirPath },
         { name: 'Ana', role: 'Child', quote: 'I hope to inspire my friends to be more mindful about their money too. It\'s cool to learn these skills together.', imagePath: {AnaPath}.AnaPath },
-        { name: 'Kristina', role: 'Guardian', quote: 'WALL-ET is a fantastic tool for instilling financial responsibility in kids.',  imagePath: {KristinaPath}.KristinaPath },
-        { name: 'Zrinka', role: 'Guardian', quote: 'WALL-ET has been a game-changer for my children\'s understanding of financial concepts.',  imagePath: {ZrinkaPath}.ZrinkaPath },
+        { name: 'Kristina', role: 'Guardian', quote: 'WALL-ET has been a game-changer for my children\'s understanding of financial concepts.',  imagePath: {KristinaPath}.KristinaPath },
+        { name: 'Zrinka', role: 'Guardian', quote: 'WALL-ET is a fantastic tool for instilling financial responsibility in kids.',  imagePath: {ZrinkaPath}.ZrinkaPath },
         { name: 'Luka', role: 'Child', quote: 'I love how the app makes learning about finances fun and interactive.', imagePath: {LukaPath}.LukaPath },
     ];
 

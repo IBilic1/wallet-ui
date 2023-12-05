@@ -12,16 +12,9 @@ export function OneLinerVisual(){
         navigate('/sign-in')
     }
 
-    const gradiantBtnStyle = (color1 : string, color2 : string) => {
-        return {
-            backgroundImage: `linear-gradient(to right, ${color1}, ${color2})`,
-            color: 'white',
-            padding: '10px 20px',
-            margin: '10px',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            transition: 'box-shadow 0.3s ease',
-        };
-    };
+    const handleAboutClick = () => {
+        navigate('/about')
+    }
 
     return (
         <Container>
@@ -43,7 +36,7 @@ export function OneLinerVisual(){
             </Typography>
 
             <GradientButton color1={'#B454C6'} color2={'#EDAAF9'} onClick={handleLoginClick}>Get Started</GradientButton>
-            <GradientButton color1={'#EDAAF9'} color2={'#B454C6'} onClick={handleLoginClick}>Get Started</GradientButton>
+            <GradientButton color1={'#EDAAF9'} color2={'#B454C6'} onClick={handleAboutClick}>Learn about us</GradientButton>
 
             <img src={homePig} alt="placeholder" style={{ width: '100%', height: '50vh', objectFit: 'contain', marginBottom: "200px" }} />
         </Container>

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {SetStateAction, useState} from 'react';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import {Divider, useTheme} from "@mui/material";
+import {GradientButton} from "../Buttons/GradientButton";
 
 const pricingStrategies = [
     {
@@ -59,24 +61,59 @@ const Pricing = () => {
     const getBoxColor = ({type}: { type: any }) => {
         switch (type) {
             case 'FREEMIUM':
-                return '#C8E6C9'; // Light green
+                // return '#C8E6C9'; // Light green
+                return theme.palette.background.default; // Light green
             case 'PREMIUM':
-                return '#BBDEFB'; // Light blue
+                // return '#BBDEFB'; // Light blue
+                return theme.palette.background.default; // Light blue
             case 'FAMILY PACKAGE MODEL':
-                return '#FFF9C4'; // Light yellow
+                // return '#FFF9C4'; // Light yellow
+                return theme.palette.background.default; // Light yellow
             default:
                 return '#FFFFFF'; // White
         }
     };
 
+    // State to track the "Popular" pricing strategy
+    const [selectedIndex, setSelectedIndex] = useState(Math.floor(Math.random() * pricingStrategies.length));
+
+    // Function to handle hover effect
+    const handleHover = (index: number | SetStateAction<number>) => {
+        setSelectedIndex(index);
+    };
+
+    const theme = useTheme();
+
     return (
-        <Grid container spacing={4} padding="1em">
-            {pricingStrategies.map((strategy) => (
-                <Grid item key={strategy.type} xs={12} md={4}>
-                    <Paper elevation={3} style={{ backgroundColor: getBoxColor({type: strategy.type}), marginLeft:'1em',marginRight:'1em', padding: '1rem', height: '100%' }}>
-                        <Typography variant="h5" fontWeight="bold" marginBottom="1rem">
+        <Grid container spacing={4} padding="2em">
+            {pricingStrategies.map((strategy, index) => (
+                <Grid
+                    item
+                    key={strategy.type}
+                    xs={12}
+                    md={4}
+                    onMouseEnter={() => handleHover(index)}
+                    onMouseLeave={() => handleHover(-1)}
+                >
+                    <Paper
+                        elevation={3}
+                        style={{
+                            backgroundColor: getBoxColor({ type: strategy.type }),
+                            marginLeft: '1em',
+                            marginRight: '1em',
+                            padding: '1rem',
+                            height: '100%',
+                            // height: index === selectedIndex ? '110%' : '100%', // Taller for the "Popular" pricing
+                            transition: 'transform 0.3s ease', // Add smooth transition for transform
+                            transform: index === selectedIndex ? 'scale(1.05)' : 'scale(1)', // Scale on hover
+                            transformOrigin: 'center', // Set the transform origin to the center
+
+                        }}
+                    >
+                        <Typography variant="h5" fontWeight="bold" marginBottom="1rem" style={{textAlign: "center"}}>
                             {strategy.type}
                         </Typography>
+                        <Divider sx={{ backgroundColor: theme.palette.info.main, marginBottom: '20px' }} />
                         <Typography variant="body1" gutterBottom>
                             <strong>Features:</strong>
                         </Typography>
@@ -85,6 +122,7 @@ const Pricing = () => {
                                 <li key={index}>{feature}</li>
                             ))}
                         </ul>
+                        <Divider sx={{ backgroundColor: theme.palette.info.main, marginBottom: '20px' }} />
                         <Typography variant="body1" gutterBottom>
                             <strong>Users:</strong> {strategy.users}
                         </Typography>
@@ -96,6 +134,9 @@ const Pricing = () => {
                                 <strong>Price:</strong> {strategy.price}
                             </Typography>
                         )}
+                        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                            <GradientButton color1={theme.palette.secondary.main} color2={theme.palette.secondary.main} onClick={()=>{}}>Get started now</GradientButton>
+                        </div>
                     </Paper>
                 </Grid>
             ))}

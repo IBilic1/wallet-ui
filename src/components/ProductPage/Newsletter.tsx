@@ -43,10 +43,10 @@ export default function Newsletter() {
                     </div>
 
                     {/* CTA content and form in the same Grid container */}
-                    <Grid container justifyContent="space-between" alignItems="center">
+                    <Grid container spacing={2} justifyContent="space-between" alignItems={"center"}>
 
                         {/* CTA content */}
-                        <Grid item xs={12} lg={6} style={{ marginBottom: '1.5rem', marginRight: '1.5rem' }}>
+                        <Grid item style={{ marginBottom: '1.5rem', marginRight: '1.5rem' }}>
                             <Typography variant="h5" component="h3" style={{ color: 'white', marginBottom: '1rem' }}>
                                 Stay in the loop
                             </Typography>
@@ -56,9 +56,9 @@ export default function Newsletter() {
                         </Grid>
 
                         {/* CTA form */}
-                        <Grid item xs={12} lg={6} style={{ display: 'flex', alignItems: 'stretch' }}>
-                            <form style={{ width: '100%' }}>
-                                <Grid container spacing={2} alignItems="flex-end">
+                        <Grid item display="flex" justifyContent="center" alignItems="center">
+                            <form style={{ width: '100%'}}>
+                                <Grid container spacing={2} >
                                     <Grid item xs={12} sm={8}>
                                         <TextField
                                             type="email"
