@@ -2,6 +2,7 @@ import {Button, Container, Typography} from "@mui/material";
 import React from "react";
 import homePig from '../../assets/img/logo.png'
 import {useNavigate} from "react-router-dom";
+import {GradientButton} from "../Buttons/GradientButton";
 
 export function OneLinerVisual(){
 
@@ -41,23 +42,9 @@ export function OneLinerVisual(){
                 Introduce your child to financial responsibilities with our virtual wallet app. Set saving goals, track spending, and reward their progress in a secure and engaging environment.
             </Typography>
 
-            <Button
-                className="hover:shadow-md"
-                style={gradiantBtnStyle('#B454C6', '#EDAAF9')}
-                onClick={handleLoginClick}
-                onMouseOver={(e) => (e.currentTarget.style.boxShadow = '0 8px 12px rgba(0, 0, 0, 0.2)')}
-                onMouseOut={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)')}
-            >
-                Get Started
-            </Button>
-            <Button
-                className="hover:shadow-md"
-                style={gradiantBtnStyle('#EDAAF9', '#B454C6')}
-                onMouseOver={(e) => (e.currentTarget.style.boxShadow = '0 8px 12px rgba(0, 0, 0, 0.2)')}
-                onMouseOut={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)')}
-            >
-                Learn More
-            </Button>
+            <GradientButton color1={'#B454C6'} color2={'#EDAAF9'} onClick={handleLoginClick}>Get Started</GradientButton>
+            <GradientButton color1={'#EDAAF9'} color2={'#B454C6'} onClick={handleLoginClick}>Get Started</GradientButton>
+
             <img src={homePig} alt="placeholder" style={{ width: '100%', height: '50vh', objectFit: 'contain', marginBottom: "200px" }} />
         </Container>
     )

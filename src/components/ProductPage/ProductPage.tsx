@@ -21,6 +21,7 @@ import {
     RemoveRedEye,
     Security
 } from "@mui/icons-material";
+import Newsletter from "./Newsletter";
 
 const ProductPage = () => {
 
@@ -65,8 +66,8 @@ const ProductPage = () => {
         { name: 'Zvonimir', role: 'Guardian', quote: "I want to make sure my grandsons learn the value of money and develop good financial habits for their future.", imagePath: {ZvonimirPath}.ZvonimirPath },
         { name: 'Ana', role: 'Child', quote: 'I hope to inspire my friends to be more mindful about their money too. It\'s cool to learn these skills together.', imagePath: {AnaPath}.AnaPath },
         { name: 'Kristina', role: 'Guardian', quote: 'WALL-ET is a fantastic tool for instilling financial responsibility in kids.',  imagePath: {KristinaPath}.KristinaPath },
-        { name: 'Zrinka', role: 'Guardian', quote: 'I love how the app makes learning about finances fun and interactive.',  imagePath: {ZrinkaPath}.ZrinkaPath },
-        { name: 'Luka', role: 'Child', quote: 'WALL-ET has been a game-changer for my children\'s understanding of financial concepts.', imagePath: {LukaPath}.LukaPath },
+        { name: 'Zrinka', role: 'Guardian', quote: 'WALL-ET has been a game-changer for my children\'s understanding of financial concepts.',  imagePath: {ZrinkaPath}.ZrinkaPath },
+        { name: 'Luka', role: 'Child', quote: 'I love how the app makes learning about finances fun and interactive.', imagePath: {LukaPath}.LukaPath },
     ];
 
     return (
@@ -80,10 +81,8 @@ const ProductPage = () => {
 
             <Divider sx={{ backgroundColor: theme.palette.secondary.main, marginBottom: '20px' }} />
 
-            <ContactUs />
-
             {/* Customer testimonials */}
-            <Typography variant="h5" gutterBottom style={{ marginTop: '30px' }}>
+            <Typography variant="h3" gutterBottom style={{ marginTop: '30px' }}>
                 What Our Customers Say
             </Typography>
             <Grid container spacing={2} justifyContent="center">
@@ -98,6 +97,11 @@ const ProductPage = () => {
                 ))}
             </Grid>
 
+            <Divider sx={{ backgroundColor: theme.palette.secondary.main, marginBottom: '20px' }} />
+
+            <ContactUs />
+
+            <Newsletter/>
 
         </Container>
     );

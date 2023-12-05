@@ -36,7 +36,7 @@ export const Features = ({ data }: { data: { icon: React.ReactNode; title: strin
                                     <Avatar sx={{ width: 80, height: 80, backgroundColor: theme.palette.primary.main, fontSize: '2rem' }}>
                                         {d.icon}
                                     </Avatar>
-                                    <Typography variant='h4' sx={{ fontWeight: 'bold', marginTop: '15px', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                                    <Typography variant='h4' sx={{ fontWeight: 'bold', marginY: '15px', textOverflow: 'ellipsis', overflow: 'hidden' }}>
                                         {d.title}
                                     </Typography>
                                     <Typography variant='body1' sx={{ textAlign: 'center', textOverflow: 'ellipsis', overflow: 'hidden' }}>

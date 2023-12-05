@@ -7,8 +7,11 @@ import homePig from '../../assets/img/homePig.jpg'
 import { useNavigate } from 'react-router-dom'
 import ContactUs from "../FooterLinks/ContactUs";
 import Pricing from "../FooterLinks/Pricing";
+import {GradientButton} from "../Buttons/GradientButton";
+import {useTheme} from "@mui/material";
 
 export default function HomePageContent() {
+  const theme = useTheme()
   const navigate = useNavigate()
 
   const handleLoginClick = () => {
@@ -35,6 +38,7 @@ export default function HomePageContent() {
                 and reward their progress in a secure and engaging environment
               </Typography>
               <div style={{ display: 'flex', marginTop: 20 }}>
+                {/*<GradientButton color1={theme.palette.primary.main} color2={theme.palette.secondary.main} onClick={handleLoginClick}>Login</GradientButton>*/}
                 <Button variant='contained' color='primary' style={{ marginRight: 10 }} onClick={handleLoginClick}>
                   LOGIN
                 </Button>
