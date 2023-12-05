@@ -47,8 +47,8 @@ export default function HomePageContent() {
               </div>
             </div>
           </Grid>
-          <Grid item xs={12} sm={6} style={{height: '100%'}}>
-            <img src={homePig} alt='placeholder' style={{ width: '100%', height: '100vh', objectFit: 'fill' }} />
+          <Grid item xs={12} sm={6} style={{height: '100vh'}}>
+            <img src={homePig} alt='placeholder' style={{ width: '100%', height: '100%', objectFit: 'fill' }} />
           </Grid>
 
           {/*<ContactUs/>*/}

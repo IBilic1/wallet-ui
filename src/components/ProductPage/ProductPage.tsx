@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Typography, Button, Grid, Card, CardContent, Box} from '@mui/material';
+import {Container, Typography, Button, Grid, Card, CardContent, Box, useTheme, Divider} from '@mui/material';
 import ContactUs from '../FooterLinks/ContactUs';
 import Avatar from "@mui/material/Avatar";
 import TestimonialCard from "../Cards/TestimonialCard";
@@ -9,30 +9,54 @@ import LukaPath from "../../assets/img/personas/Luka.png";
 import ZrinkaPath from "../../assets/img/personas/Zrinka.png";
 import AnaPath from "../../assets/img/personas/Ana.png";
 import {useNavigate} from "react-router-dom";
+import {OneLinerVisual} from "./OneLinerVisual";
+import {Features} from "./Features";
+import {
+    Money,
+    Group,
+    AccountBox,
+    TrackChanges,
+    PestControl,
+    Savings,
+    RemoveRedEye,
+    Security
+} from "@mui/icons-material";
 
 const ProductPage = () => {
 
+    const theme = useTheme()
+
     const featuresArray = [
         {
-            "icon": "fa fa-comments-o",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+            "icon": <AccountBox />,
+            "title": "Account Creation",
+            "text": "The app will enable kids to create their own accounts, either independently or with parental supervision."
         },
         {
-            "icon": "fa fa-bullhorn",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+            "icon": <Money />,
+            "title": "Money Management",
+            "text": "Users will be able to add money to their virtual wallets, track their balance, and view transaction history. The app will support multiple currencies and provide a user-friendly interface for managing funds."
         },
         {
-            "icon": "fa fa-group",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+            "icon": <Savings />,
+            "title": "Savings Goals",
+            "text": "The app may include a feature that allows kids to set savings goals, such as saving for a specific toy or item. It can track progress toward these goals and provide incentives or rewards for achieving them."
         },
         {
-            "icon": "fa fa-magic",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
-        }
+            "icon": <TrackChanges />,
+            "title": "Expense Tracking",
+            "text": "Users will be able to record their expenses, categorize them, and monitor their spending habits. This feature can help kids develop good financial habits and learn about budgeting."
+        },
+        {
+            "icon": <RemoveRedEye/>,
+            "title": "Parental Controls",
+            "text": "The app may offer parental controls or oversight features that allow parents to monitor their child's transactions, set spending limits, or provide allowances. These controls would ensure responsible use and enable parents to guide their child's financial education."
+        },
+        {
+            "icon": <Security/>,
+            "title": "Secure Environment",
+            "text": "The app will prioritize the safety and security of children's financial information. Robust security measures will be implemented to protect user data and ensure a trustworthy platform for kids to manage their money."
+        },
     ];
 
 
@@ -45,77 +69,16 @@ const ProductPage = () => {
         { name: 'Luka', role: 'Child', quote: 'WALL-ET has been a game-changer for my children\'s understanding of financial concepts.', imagePath: {LukaPath}.LukaPath },
     ];
 
-    const navigate = useNavigate()
-
-    const handleLoginClick = () => {
-        navigate('/sign-in')
-    }
-
-    const gradiantBtnStyle = (color1 : string, color2 : string) => {
-        return {
-            backgroundImage: `linear-gradient(to right, ${color1}, ${color2})`,
-            color: 'white',
-            padding: '10px 20px',
-            margin: '10px',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            transition: 'box-shadow 0.3s ease',
-        };
-    };
-
     return (
-        <Container maxWidth="md" style={{ textAlign: 'center', marginTop: '100px' }}>
+        <Container style={{ textAlign: 'center', marginTop: '100px' }}>
 
             {/* Main product visual */}
-            <Typography variant="h2" gutterBottom className="font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">
-                Empower Your Child's Financial Future with {' '}
-                <span
-                    style={{
-                        backgroundImage: 'linear-gradient(to right, #9852EC, #EDAAF9)',
-                        WebkitBackgroundClip: 'text',
-                        color: 'transparent',
-                    }}
-                >
-                  WALL-ET
-                </span>
-            </Typography>
-            {/* Clear product description and value proposition */}
-            <Typography variant="body1" paragraph>
-                Introduce your child to financial responsibilities with our virtual wallet app. Set saving goals, track spending, and reward their progress in a secure and engaging environment.
-            </Typography>
-
-            <Button
-                className="hover:shadow-md"
-                style={gradiantBtnStyle('#B454C6', '#EDAAF9')}
-                onClick={handleLoginClick}
-                onMouseOver={(e) => (e.currentTarget.style.boxShadow = '0 8px 12px rgba(0, 0, 0, 0.2)')}
-                onMouseOut={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)')}
-            >
-                Get Started
-            </Button>
-            <Button
-                className="hover:shadow-md"
-                style={gradiantBtnStyle('#EDAAF9', '#B454C6')}
-                onMouseOver={(e) => (e.currentTarget.style.boxShadow = '0 8px 12px rgba(0, 0, 0, 0.2)')}
-                onMouseOut={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)')}
-            >
-                Learn More
-            </Button>
+            <OneLinerVisual/>
 
             {/* Key features */}
-            <Typography variant="h5" gutterBottom>
-                Key Features
-            </Typography>
-            <Grid container spacing={2} justifyContent="center">
-                {/* Include the key features here using bullet points or any preferred format */}
-                <Grid item xs={12} sm={6} md={4}>
-                    <Card>
-                        <CardContent>
-                            <Typography variant="subtitle1">Virtual allowance management</Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>
-                {/* Repeat similar Card components for other key features */}
-            </Grid>
+            <Features data={featuresArray}/>
+
+            <Divider sx={{ backgroundColor: theme.palette.secondary.main, marginBottom: '20px' }} />
 
             <ContactUs />
 
@@ -125,9 +88,16 @@ const ProductPage = () => {
             </Typography>
             <Grid container spacing={2} justifyContent="center">
                 {testimonials.map((testimonial, index) => (
-                    <TestimonialCard name={testimonial.name} quote={testimonial.quote} role={testimonial.role} imagePath={testimonial.imagePath}/>
+                    <TestimonialCard
+                        key={index}
+                        name={testimonial.name}
+                        quote={testimonial.quote}
+                        role={testimonial.role}
+                        imagePath={testimonial.imagePath}
+                    />
                 ))}
             </Grid>
+
 
         </Container>
     );

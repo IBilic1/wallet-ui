@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 import socials from "../../assets/img/socials-1.svg";
 import { Box } from "@mui/material";
 

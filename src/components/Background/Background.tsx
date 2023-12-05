@@ -6,7 +6,7 @@ import background from "../../assets/img/backgroundWave3.svg"
 export default function Background(props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactPortal | null | undefined; }) {
   const containerStyle = {
     width: '100%',
-    height: '150vh',
+    height: '100vh',
     background: `url(${background}) no-repeat center center fixed`,
     backgroundSize: 'cover',
   };
