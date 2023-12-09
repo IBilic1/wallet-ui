@@ -36,6 +36,7 @@ jobs:
   openshift:
      needs:  [push_to_registry]
      runs-on: ubuntu-latest
+     environment: production
      steps:
        - name: Set up OpenShift CLI
          uses: redhat-actions/oc-login@v1
