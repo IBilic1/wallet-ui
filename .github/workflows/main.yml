@@ -47,4 +47,4 @@ jobs:
        - name: Trigger OpenShift deployment
          run: |
            oc project wallet
-           oc rollout latest deployments/wallet-for-kids
+           oc patch deployment/wallet-for-kids --patch "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"last-restart\":\"`date +'%s'`\"}}}}}"
