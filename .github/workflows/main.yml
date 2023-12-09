@@ -47,4 +47,4 @@ jobs:
        - name: Trigger OpenShift deployment
          run: |
            oc project wallet
-           oc rollout latest deployment/wallet-for-kids
+           oc rollout latest dc/wallet-for-kids
