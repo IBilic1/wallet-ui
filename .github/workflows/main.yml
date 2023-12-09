@@ -33,3 +33,17 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+  openshift:
+     needs:  [push_to_registry]
+     runs-on: ubuntu-latest
+     steps:
+       - name: Set up OpenShift CLI
+         uses: redhat-actions/oc-login@v1
+         with:
+           openshift_server_url: ${{ secrets.OPENSHIFT_SERVER }}
+           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
+      
+       - name: Trigger OpenShift deployment
+         run: |
+           oc project wallet
+           oc rollout latest deployment/wallet-for-kids
