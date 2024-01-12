@@ -15,6 +15,21 @@ export type AuthResponse = {
     refresh_token: string;
 };
 
+export type Task = {
+    id: number | string;
+    title: string;
+    description: string;
+    timeToComplete: Date;
+    deadline: Date;
+    parentApproved: boolean;
+    AI_created: boolean;
+};
+
+export type TaskChild = Task & {
+    childID: number | string;
+    completed: boolean;
+};
+
 export type User = {
     id?: number;
     firstName?: string;
@@ -22,12 +37,17 @@ export type User = {
     email?: string;
 };
 
+export type ChildUser = User & {
+    listOfTasks: TaskChild[];
+    listOfGuardians: Guardian[];
+};
 
-export type Appointment = {
-    id?: number;
-    startDateTime: string;
-    endDateTime: string;
-    address: string;
-    doctor?: User;
-    patient?: User;
+export type Guardian = User & {
+    listOfChildren: ChildUser[];
+};
+
+export type TaskGuardianView = {
+    listOfAllTasks: Task[];
+    dropdownChildren: ChildUser[];
+    assignTaskToChild: (childUser: ChildUser, taskID: number | string) => void;
 };

@@ -29,6 +29,10 @@ export function HomePage() {
     paddingBottom: footerHeight,
   };
 
+
+
+
+
   return (
   <BrowserRouter>
     <SnackbarProvider>
