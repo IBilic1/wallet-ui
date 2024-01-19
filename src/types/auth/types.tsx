@@ -1,3 +1,5 @@
+import React from "react";
+
 export type LoginRequest = {
     email: string;
     password: string;
@@ -26,7 +28,7 @@ export type Task = {
 };
 
 export type TaskChild = Task & {
-    childID: number | string;
+    childID: number | string | undefined;
     completed: boolean;
 };
 
@@ -46,8 +48,17 @@ export type Guardian = User & {
     listOfChildren: ChildUser[];
 };
 
+export type TaskCardElement = {
+    task: Task;
+    children: ChildUser[];
+};
+
 export type TaskGuardianView = {
-    listOfAllTasks: Task[];
+    listOfAllTasks: {
+        task: Task;
+        taskCardElement: React.ElementType | JSX.Element; // Adjust this based on your actual TaskCardElement type
+    }[];
     dropdownChildren: ChildUser[];
-    assignTaskToChild: (childUser: ChildUser, taskID: number | string) => void;
+    assignTaskToChild: (guardian: Guardian, child: ChildUser, task: Task) => void;
+    guardian: Guardian;
 };

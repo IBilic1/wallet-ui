@@ -18,6 +18,7 @@ import ContactUs from "../../components/FooterLinks/ContactUs";
 import Pricing from "../../components/FooterLinks/Pricing";
 import AboutUs from "../../components/FooterLinks/AboutUs";
 import ProductPage from "../../components/ProductPage/ProductPage";
+import GuardianAssignTaskPage, {generateTaskGuardianView} from "../TaskPage/GuardianAssignTaskPage";
 
 export function HomePage() {
 
@@ -29,7 +30,7 @@ export function HomePage() {
     paddingBottom: footerHeight,
   };
 
-
+  const taskGuardianView = generateTaskGuardianView()
 
 
 
@@ -50,6 +51,14 @@ export function HomePage() {
             <Route path="pricing" element={<Pricing/>}/>
             <Route path="about" element={<AboutUs/>}/>
             <Route path="learn-more" element={<ProductPage/>}/>
+            <Route path="assign-task" element=
+                {<GuardianAssignTaskPage
+                assignTaskToChild={taskGuardianView.assignTaskToChild}
+                guardian={taskGuardianView.guardian}
+                dropdownChildren={taskGuardianView.dropdownChildren}
+                listOfAllTasks={taskGuardianView.listOfAllTasks}
+                />}
+            />
           </Routes>
         </div>
       </Background>
