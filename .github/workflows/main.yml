@@ -49,4 +49,4 @@ jobs:
   
       # Run a script to create a new app or update the current one with the previously pushed container image
       - run: | 
-           "./script.sh" ${{ secrets.APP_NAME }} ${{ secrets.IMAGE_REGISTRY }}/${{ steps.build_image.outputs.image }}:${{ github.sha }} ${{ secrets.OPENSHIFT_NAMESPACE }}
+           ".github/workflows/script.sh" ${{ secrets.APP_NAME }} ${{ secrets.IMAGE_REGISTRY }}/${{ steps.build_image.outputs.image }}:${{ github.sha }} ${{ secrets.OPENSHIFT_NAMESPACE }}
