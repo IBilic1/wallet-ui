@@ -6,6 +6,10 @@ on:
       - master
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: chmod +x ${GITHUB_WORKSPACE}/.github/workflows/script.sh
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
