@@ -18,8 +18,8 @@ import { useNavigate } from 'react-router-dom'
 const pages = ['Tasks', 'History', 'Store', 'Group']
 // const settings = ['Profile', 'Logout']
 const settings = [
-    {'name':"Profile","url":"/profile"},
-    {'name':"Logout","url":"/logout"}
+  { 'name': 'Profile', 'url': '/profile' },
+  { 'name': 'Logout', 'url': '/logout' },
 ]
 
 function ResponsiveAppBar() {
@@ -48,16 +48,20 @@ function ResponsiveAppBar() {
     navigate('/home')
   }
 
-    const handleTaskClick = () => {
-        navigate('/assign-task')
-    }
+  const handleTaskClick = () => {
+    navigate('/assign-task')
+  }
 
-    const appBarStyle = {
-        position: 'fixed',
-        top: 0,
-        width: '100%',
-        zIndex: 1000, // Adjust the z-index as needed
-    };
+  const appBarStyle = {
+    position: 'fixed',
+    top: 0,
+    width: '100%',
+    zIndex: 1000, // Adjust the z-index as needed
+  }
+
+  const handleTasksClick = () => {
+    navigate('/tasks')
+  }
 
   return (
     <AppBar position='static' sx={{ background: '#f8f8f8', ...appBarStyle }}>
@@ -84,7 +88,7 @@ function ResponsiveAppBar() {
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
-                fontSize:35,
+                fontSize: 35,
                 fontWeight: 700,
                 letterSpacing: '.3rem',
                 color: '#9852EC',
@@ -126,8 +130,8 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {localStorage.getItem('access_token') && pages.map((page) => (
+                <MenuItem key={page} onClick={handleTasksClick}>
                   <Typography textAlign='center'>{page}</Typography>
                 </MenuItem>
               ))}
@@ -158,12 +162,12 @@ function ResponsiveAppBar() {
             Wall-ET
           </Typography>
 
-          {auth && (
+          {localStorage.getItem('access_token') && (
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={handleTaskClick}
+                  onClick={handleTasksClick}
                   sx={{ my: 2, color: 'purple', display: 'block' }}
                 >
                   {page}
@@ -172,7 +176,7 @@ function ResponsiveAppBar() {
             </Box>
           )}
           <Box sx={{ flexGrow: 0 }}>
-            {auth && (
+            {localStorage.getItem('access_token') && (
               <div>
                 <Tooltip title='Open settings'>
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -197,7 +201,12 @@ function ResponsiveAppBar() {
                 >
                   {settings.map((setting) => (
                     <MenuItem key={setting.name} onClick={
-                        event => navigate(setting.url)
+                      event => {
+                        if (setting.name == 'Logout') {
+                          localStorage.removeItem('access_token')
+                        }
+                        navigate(setting.url)
+                      }
                     }>
                       <Typography textAlign='center'>{setting.name}</Typography>
                     </MenuItem>

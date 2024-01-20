@@ -12,12 +12,12 @@ import Box from '@mui/material/Box'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import {useGetUserQuery, useSignInMutation} from '../../store/query/auth.query'
+import { useSignInMutation } from '../../store/query/auth.query'
 import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack'
 
 export default function SignIn() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const { enqueueSnackbar } = useSnackbar()
 
   const [signIn, { data: singinData, isError }] = useSignInMutation()
@@ -51,14 +51,14 @@ export default function SignIn() {
     if (singinData) {
       localStorage.setItem('refresh_token', singinData?.refresh_token ?? undefined)
       localStorage.setItem('access_token', singinData?.access_token ?? undefined)
-      enqueueSnackbar("Login successful!", { variant: 'success' })
-      navigate("/home")
+      enqueueSnackbar('Login successful!', { variant: 'success' })
+      navigate('/home')
     }
   }, [singinData])
 
   React.useEffect(() => {
     if (isError) {
-      enqueueSnackbar("Login failed!", { variant: 'error' })
+      enqueueSnackbar('Login failed!', { variant: 'error' })
     }
   }, [isError])
 
@@ -67,11 +67,11 @@ export default function SignIn() {
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
           display: 'flex',
+          height: '92vh',
+          paddingTop: 15,
           flexDirection: 'column',
           alignItems: 'center',
-          padding: "20px",
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>

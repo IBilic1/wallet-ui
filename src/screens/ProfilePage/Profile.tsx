@@ -1,66 +1,95 @@
-import {useNavigate} from "react-router-dom";
-import {useSnackbar} from "notistack";
-import {useGetUserQuery} from "../../store/query/auth.query";
-import * as React from "react";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import {Container} from "@mui/material";
+import React from 'react'
+import { Avatar, Box, Container, Grid, Paper, Typography } from '@mui/material'
+import BasicPie from '../../components/Chart'
 
-export default function Profile() {
-    const navigate = useNavigate();
-    const { enqueueSnackbar } = useSnackbar()
+const ProfilePage = () => {
+  // Dummy data for demonstration purposes
+  const profileData = {
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    group: 'Web Developers',
+    guardianName: 'Jane Doe',
+    members: [
+      {
+        id: 1,
+        name: 'Member 1',
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHCZuslFbn42wwA9qw6ywBERhtpr_yOFy3Cw&usqp=CAU',
+      },
+      {
+        id: 2,
+        name: 'Member 2',
+        avatar: 'https://cdn.icon-icons.com/icons2/2630/PNG/512/avatar_woman_people_girl_glasses_icon_159125.png',
+      },
+      {
+        id: 3,
+        name: 'Member 3',
+        avatar: 'https://i0.wp.com/www.yugatech.com/wp-content/uploads/2020/09/Facebook-Avatar.jpg?resize=500%2C500&quality=89&ssl=1',
+      },
+    ],
+  }
 
-    const { data: userData, isLoading, isError } = useGetUserQuery();
-    if (userData?.email!="")
-    {
+  return (
+    <Container maxWidth='md'>
+      <Paper elevation={3} sx={{ padding: '20px', marginTop: '120px', color: 'black' }}>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'rows',
+          alignItems: 'flex-start',
+          gap: '20px',
 
-    }
-    console.log(userData)
-    // Check loading and error states
-    // if (isLoading) {
-    //     return <p>Loading...</p>;
-    // }
-    //
-    // if (isError) {
-    //     return <p>Error loading user data</p>;
-    // }
+        }}>
+          <Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                gap: '20px',
+              }}
+            >
+              <Avatar alt='User Avatar'
+                      src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSymos5w_HKm-HZDozjtrO1PBJ42oX8ULFwXg&usqp=CAU'
+                      sx={{ width: 100, height: 100 }} />
+              <Typography variant='h4'>{profileData.name}</Typography>
+              <Typography variant='subtitle1' color='textSecondary'>
+                {profileData.email}
+              </Typography>
+              <Typography variant='subtitle1' color='textSecondary'>
+                Group: {profileData.group}
+              </Typography>
+              <Typography variant='subtitle1' color='textSecondary'>
+                Guardian: {profileData.guardianName}
+              </Typography>
+            </Box>
+            <Box sx={{ marginTop: '20px' }}>
+              <Typography variant='h6' gutterBottom>
+                Group Members
+              </Typography>
+              <Grid container spacing={2}>
+                {profileData.members.map((member) => (
+                  <Grid item key={member.id}>
+                    <Avatar alt={member.name} src={member.avatar} sx={{ width: 50, height: 50 }} />
+                    <Typography variant='caption'>{member.name}</Typography>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+          </Box>
 
-    // Access user data
-    const user = userData; // Adjust the property name based on your API response structure
-
-    function handleEditClick() {
-
-    }
-
-    return (
-        <Grid container spacing={2} id='content'>
-            <Grid item xs={12} sm={6} style={{ display: 'flex', alignItems: 'center', marginLeft:'2vw' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
-                    <div style={{ display: 'flex', marginTop: 20, alignItems: 'center', justifyContent: 'center' }}>
-                        <Typography variant='h4' sx={{ fontWeight: 'bold', marginRight: '1vw' }}>
-                            Personal Info!
-                        </Typography>
-                        <Button variant='contained' color='primary' onClick={handleEditClick}>
-                            EDIT INFO
-                        </Button>
-                    </div>
-                    {user && (
-                        <div>
-                            <p>Name: {user.firstName} {user.lastName}</p>
-                            <p>Email: {user.email}</p>
-                        </div>
-                    )}
-
-                    <div>
-                        <p><b>Name:</b> TestName TestSurname</p>
-                        <p><b>Email:</b> test@mail.com</p>
-                    </div>
-                </div>
-            </Grid>
-            <Grid item xs={12} sm={6} >
-                <div style={{background: "darkgray", width: "100%", height:"100%"}}></div>
-            </Grid>
-        </Grid>
-    )
+        </Box>
+      </Paper>
+      <Paper elevation={3} sx={{ padding: '20px', marginTop: '20px',marginBottom: '120px', color: 'black' }}>
+        <Typography variant='h4'>Expences:</Typography>
+        <Box sx={{
+          marginTop: '20px',
+        }}>
+          <BasicPie />
+        </Box>
+      </Paper>
+    </Container>
+  )
 }
+
+export default ProfilePage
+
+
