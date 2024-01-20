@@ -100,7 +100,7 @@ const ProductPage = () => {
 
             <Divider sx={{ backgroundColor: theme.palette.secondary.main, marginBottom: '20px' }} />
 
-            <div style={{ width: '150%', margin: '0 -25%', textAlign: 'start' }}>
+            <div style={{ width: '130%', margin: '0 -15%', textAlign: 'start' }}>
                 <Pricing/>
             </div>
 

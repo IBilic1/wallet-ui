@@ -30,7 +30,8 @@ const workTheme = createTheme({
     }
   },
   typography: createTypography(createPalette({}),{
-    fontFamily: '"Young Serif"',
+    // fontFamily: '"Young Serif"',
+    fontFamily: '"Lexend"',
     fontSize: 15
   })
 });
