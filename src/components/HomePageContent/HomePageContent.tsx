@@ -3,7 +3,7 @@ import React from 'react'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
-import homePig from '../../assets/img/homePig.jpg'
+import homePig from '../../assets/img/homePigV2.png'
 import { useNavigate } from 'react-router-dom'
 import ContactUs from "../FooterLinks/ContactUs";
 import Pricing from "../FooterLinks/Pricing";
@@ -51,7 +51,7 @@ export default function HomePageContent() {
               </div>
             </div>
           </Grid>
-          <Grid item xs={12} sm={6} style={{height: '100vh'}}>
+          <Grid item xs={12} sm={6} >
             <img src={homePig} alt='placeholder' style={{ width: '100%', height: '100%', objectFit: 'fill' }} />
           </Grid>
 

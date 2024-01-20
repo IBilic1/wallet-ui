@@ -21,6 +21,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Source Code Pro'; /* Provide a name for your font */
+    src: local('SourceCodePro'), url('./SourceCodePro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     /*font-family: 'MagicSaturday', sans-serif, Poppins, "Bradley Hand ITC", "Gabriola","Gabriela", "Young Serif",;*/
     font-family: 'Young Serif', serif;

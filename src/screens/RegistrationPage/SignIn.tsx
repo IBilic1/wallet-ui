@@ -12,7 +12,7 @@ import Box from '@mui/material/Box'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import { useSignInMutation } from '../../store/query/auth.query'
+import {useGetUserQuery, useSignInMutation} from '../../store/query/auth.query'
 import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack'
 

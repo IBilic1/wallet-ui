@@ -12,7 +12,11 @@ export default function Profile() {
     const { enqueueSnackbar } = useSnackbar()
 
     const { data: userData, isLoading, isError } = useGetUserQuery();
+    if (userData?.email!="")
+    {
 
+    }
+    console.log(userData)
     // Check loading and error states
     // if (isLoading) {
     //     return <p>Loading...</p>;

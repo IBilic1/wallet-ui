@@ -48,6 +48,10 @@ function ResponsiveAppBar() {
     navigate('/home')
   }
 
+    const handleTaskClick = () => {
+        navigate('/assign-task')
+    }
+
     const appBarStyle = {
         position: 'fixed',
         top: 0,
@@ -159,7 +163,7 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={handleCloseNavMenu}
+                  onClick={handleTaskClick}
                   sx={{ my: 2, color: 'purple', display: 'block' }}
                 >
                   {page}
