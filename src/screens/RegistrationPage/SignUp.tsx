@@ -13,6 +13,7 @@ import Container from '@mui/material/Container'
 import { useNavigate } from 'react-router-dom'
 import { useSignUpMutation } from '../../store/query/auth.query'
 import { useSnackbar } from 'notistack'
+import { DatePicker } from '@mui/x-date-pickers'
 
 export default function SignUp() {
   const navigate = useNavigate()
@@ -76,11 +77,11 @@ export default function SignUp() {
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
           display: 'flex',
+          height: '92vh',
+          paddingTop: 15,
           flexDirection: 'column',
           alignItems: 'center',
-          padding: "20px",
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -147,20 +148,6 @@ export default function SignUp() {
                           sx={{ paddingLeft: 2, fontSize: '0.8rem', marginTop: '0.5rem' }}>
                 {formErrors.password}
               </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                  fullWidth
-                  id='age'
-                  label='Age'
-                  name='age'
-                  type={"date"}
-                  autoFocus
-              />
-              {/*<Typography variant='body2' color='error'*/}
-              {/*            sx={{ paddingLeft: 2, fontSize: '0.8rem', marginTop: '0.5rem' }}>*/}
-              {/*  Missing Age*/}
-              {/*</Typography>*/}
             </Grid>
           </Grid>
           <Button
