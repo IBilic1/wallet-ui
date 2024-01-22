@@ -13,7 +13,6 @@ import Container from '@mui/material/Container'
 import { useNavigate } from 'react-router-dom'
 import { useSignUpMutation } from '../../store/query/auth.query'
 import { useSnackbar } from 'notistack'
-import { DatePicker } from '@mui/x-date-pickers'
 
 export default function SignUp() {
   const navigate = useNavigate()
@@ -78,7 +77,7 @@ export default function SignUp() {
       <Box
         sx={{
           display: 'flex',
-          height: '92vh',
+          height: '100vh',
           paddingTop: 15,
           flexDirection: 'column',
           alignItems: 'center',

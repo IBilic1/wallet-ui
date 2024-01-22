@@ -68,7 +68,7 @@ export default function SignIn() {
       <Box
         sx={{
           display: 'flex',
-          height: '92vh',
+          height: '100vh',
           paddingTop: 15,
           flexDirection: 'column',
           alignItems: 'center',

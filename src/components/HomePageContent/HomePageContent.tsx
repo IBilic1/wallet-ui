@@ -21,7 +21,7 @@ export default function HomePageContent() {
     navigate('/learn-more')
   }
   const containerStyle = {
-    height: '95vh',
+    height: '100vh',
   }
 
 
@@ -38,7 +38,6 @@ export default function HomePageContent() {
             and reward their progress in a secure and engaging environment
           </Typography>
           <div style={{ display: 'flex', marginTop: 20 }}>
-            {/*<GradientButton color1={theme.palette.primary.main} color2={theme.palette.secondary.main} onClick={handleLoginClick}>Login</GradientButton>*/}
             <Button variant='contained' color='primary' style={{ marginRight: 10 }} onClick={handleLoginClick}>
               LOGIN
             </Button>
@@ -52,11 +51,8 @@ export default function HomePageContent() {
         </div>
       </Grid>
       <Grid item xs={12} sm={6}>
-        <img src={homePig} alt='placeholder' style={{ width: '100%', height: '100%', objectFit: 'fill' }} />
+        <img src={homePig} alt='placeholder' style={{ width: '100%', height: '90%' }} />
       </Grid>
-
-      {/*<ContactUs/>*/}
-      {/*<Pricing/>*/}
     </Grid>
   )
 }

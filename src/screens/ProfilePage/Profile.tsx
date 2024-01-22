@@ -1,85 +1,94 @@
 import React from 'react'
-import { Avatar, Box, Container, Grid, Paper, Typography } from '@mui/material'
+import { Avatar, Box, Container, Grid, Paper, styled, Typography } from '@mui/material'
 import BasicPie from '../../components/Chart'
+import { useGetChildrenQuery, useGetUserQuery } from '../../store/query/user.query'
+import AddChildren from './AddChildren'
+// @ts-ignore
+import AvatarGenerator from 'react-avatar-generator'
+
+const ProfileBox = styled(Box)`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 15px;
+`
 
 const ProfilePage = () => {
-  // Dummy data for demonstration purposes
-  const profileData = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    group: 'Web Developers',
-    guardianName: 'Jane Doe',
-    members: [
-      {
-        id: 1,
-        name: 'Member 1',
-        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHCZuslFbn42wwA9qw6ywBERhtpr_yOFy3Cw&usqp=CAU',
-      },
-      {
-        id: 2,
-        name: 'Member 2',
-        avatar: 'https://cdn.icon-icons.com/icons2/2630/PNG/512/avatar_woman_people_girl_glasses_icon_159125.png',
-      },
-      {
-        id: 3,
-        name: 'Member 3',
-        avatar: 'https://i0.wp.com/www.yugatech.com/wp-content/uploads/2020/09/Facebook-Avatar.jpg?resize=500%2C500&quality=89&ssl=1',
-      },
-    ],
-  }
+  const { data } = useGetUserQuery()
+  const { data: children } = useGetChildrenQuery()
 
   return (
     <Container maxWidth='md'>
-      <Paper elevation={3} sx={{ padding: '20px', marginTop: '120px', color: 'black' }}>
+      <Paper elevation={3} sx={{ padding: '20px', marginTop: '100px', color: 'black' }}>
         <Box sx={{
           display: 'flex',
           flexDirection: 'rows',
           alignItems: 'flex-start',
           gap: '20px',
-
         }}>
-          <Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                gap: '20px',
-              }}
-            >
-              <Avatar alt='User Avatar'
-                      src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSymos5w_HKm-HZDozjtrO1PBJ42oX8ULFwXg&usqp=CAU'
-                      sx={{ width: 100, height: 100 }} />
-              <Typography variant='h4'>{profileData.name}</Typography>
-              <Typography variant='subtitle1' color='textSecondary'>
-                {profileData.email}
-              </Typography>
-              <Typography variant='subtitle1' color='textSecondary'>
-                Group: {profileData.group}
-              </Typography>
-              <Typography variant='subtitle1' color='textSecondary'>
-                Guardian: {profileData.guardianName}
-              </Typography>
-            </Box>
-            <Box sx={{ marginTop: '20px' }}>
-              <Typography variant='h6' gutterBottom>
-                Group Members
-              </Typography>
-              <Grid container spacing={2}>
-                {profileData.members.map((member) => (
-                  <Grid item key={member.id}>
-                    <Avatar alt={member.name} src={member.avatar} sx={{ width: 50, height: 50 }} />
-                    <Typography variant='caption'>{member.name}</Typography>
-                  </Grid>
-                ))}
-              </Grid>
-            </Box>
-          </Box>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  gap: '20px',
+                }}>
+                <Avatar
+                  alt='User Avatar'
+                  src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSymos5w_HKm-HZDozjtrO1PBJ42oX8ULFwXg&usqp=CAU'
+                  sx={{ width: 200, height: 200 }}
+                />
+                <ProfileBox>
+                  <Typography variant='h4'>{data?.firstName} {data?.lastName}</Typography>
+                  <Typography variant='subtitle1' color='textSecondary'>
+                    {data?.email}
+                  </Typography>
+                </ProfileBox>
+              </Box>
+            </Grid>
 
+            <Grid item xs={12} sm={6}>
+              <Box sx={{ marginTop: '20px' }}>
+                <AddChildren />
+                <Typography variant='h6' gutterBottom>
+                  Group Members
+                </Typography>
+                <Grid container spacing={2}>
+                  {children?.map((member) => (
+                    <Grid item key={member.id}>
+                      <div
+                        style={{
+                          width: '50px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent:'center',
+                          height: '50px',
+                          borderRadius: '50%', // Make it circular by setting border-radius to 50%
+                          overflow: 'hidden', // Ensure content inside stays within the circular boundary
+                          backgroundColor: '#FFFFFF',
+                        }}
+                      >
+                        <AvatarGenerator
+                          colors={['#F6A21E', '#DA70D6', '#6495ED']}
+                          width={50}
+                          height={50}
+                          backgroundColor='#FFFFFF'
+                          shape='circle'
+                        />
+                      </div>
+                      <Typography variant='caption'>{data?.firstName} {data?.lastName}</Typography>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Box>
+            </Grid>
+          </Grid>
         </Box>
       </Paper>
-      <Paper elevation={3} sx={{ padding: '20px', marginTop: '20px',marginBottom: '120px', color: 'black' }}>
-        <Typography variant='h4'>Expences:</Typography>
+      <Paper elevation={3} sx={{ padding: '20px', marginTop: '20px', marginBottom: '20px', color: 'black' }}>
+        <Typography variant='h4'>Expences in your family:</Typography>
         <Box sx={{
           marginTop: '20px',
         }}>
