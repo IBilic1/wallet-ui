@@ -23,7 +23,7 @@ export default function Tasks() {
         <AddTask />
         {
           data?.map(userTask => {
-            return <Task title={userTask.task.title} image={userTask.task.pictureContent} />
+            return <Task title={userTask.task.title} description={userTask.task.description} image={userTask.task.pictureContent} />
           })
         }
       </>

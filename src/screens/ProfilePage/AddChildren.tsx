@@ -8,9 +8,11 @@ import Typography from '@mui/material/Typography'
 import { useSnackbar } from 'notistack'
 import { Dialog, DialogContent, DialogTitle } from '@mui/material'
 import { useAddUserMutation } from '../../store/query/user.query'
+import {useNavigate} from "react-router-dom";
 
 export default function AddChildren() {
   const { enqueueSnackbar } = useSnackbar()
+  const navigate = useNavigate()
 
   const [addUser, { isError }] = useAddUserMutation()
   const [role] = useState<'ADMIN' | 'USER'>('USER')
@@ -49,6 +51,8 @@ export default function AddChildren() {
         lastName: data.get('lastName') as string,
         role,
       })
+      handleClose()
+      window.location.reload();
     }
   }
   const [open, setOpen] = React.useState(false)
