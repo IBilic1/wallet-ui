@@ -17,8 +17,6 @@ export default function Profile() {
   const { data } = useGetUserQuery()
   const { data: children, refetch } = useGetChildrenQuery()
 
-  console.log(data)
-
   return (
     <Container maxWidth='md'>
       <Paper elevation={3} sx={{ padding: '20px', marginTop: '100px', color: 'black' }}>
