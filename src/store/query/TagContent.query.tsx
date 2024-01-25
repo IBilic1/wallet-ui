@@ -7,7 +7,6 @@ const baseQuery = (url: string) => {
       baseUrl: url,
       prepareHeaders: async (headers) => {
         const access_token = localStorage.getItem('access_token');
-        headers.append('Origin', 'http://localhost:3000');
         if (access_token && access_token !== "undefined") {
           headers.append('Authorization', 'Bearer ' + access_token);
         }

@@ -49,7 +49,6 @@ export default function SignIn() {
 
   React.useEffect(() => {
     if (singinData) {
-      console.log("TEST " +singinData?.access_token)
       localStorage.setItem('refresh_token', singinData?.refresh_token ?? undefined)
       localStorage.setItem('access_token', singinData?.access_token ?? undefined)
       enqueueSnackbar('Login successful!', { variant: 'success' })
