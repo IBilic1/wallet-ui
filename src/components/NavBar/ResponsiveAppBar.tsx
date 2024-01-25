@@ -15,11 +15,15 @@ import logo from '../../assets/img/logo.png'
 import Stack from '@mui/material/Stack'
 import { useNavigate } from 'react-router-dom'
 
-const pages = ['Tasks', 'History', 'Store', 'Group']
-// const settings = ['Profile', 'Logout']
+
+const pages = [
+    { 'name': 'Tasks', 'url': '/tasks' },
+    { 'name': 'Store', 'url': '/shop' },
+]
+
 const settings = [
   { 'name': 'Profile', 'url': '/profile' },
-  { 'name': 'Logout', 'url': '/logout' },
+  { 'name': 'Logout', 'url': '/home' },
 ]
 
 function ResponsiveAppBar() {
@@ -48,10 +52,6 @@ function ResponsiveAppBar() {
     navigate('/home')
   }
 
-  const handleTaskClick = () => {
-    navigate('/assign-task')
-  }
-
   const appBarStyle = {
     position: 'fixed',
     top: 0,
@@ -59,8 +59,8 @@ function ResponsiveAppBar() {
     zIndex: 1000, // Adjust the z-index as needed
   }
 
-  const handleTasksClick = () => {
-    navigate('/tasks')
+  const handlePageClick = (pageUrl : string) => () => {
+    navigate(pageUrl)
   }
 
   return (
@@ -131,10 +131,10 @@ function ResponsiveAppBar() {
               }}
             >
               {localStorage.getItem('access_token') && pages.map((page) => (
-                <MenuItem key={page} onClick={handleTasksClick}>
-                  <Typography textAlign='center'>{page}</Typography>
-                </MenuItem>
-              ))}
+                      <MenuItem key={page.name} onClick={handlePageClick(page.url)}>
+                          <Typography textAlign='center'>{page.name}</Typography>
+                      </MenuItem>
+                  ))}
             </Menu>
           </Box>
           <Box
@@ -166,11 +166,11 @@ function ResponsiveAppBar() {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
                 <Button
-                  key={page}
-                  onClick={handleTasksClick}
-                  sx={{ my: 2, color: 'purple', display: 'block' }}
+                    key={page.name}
+                    onClick={handlePageClick(page.url)}
+                    sx={{ my: 2, color: 'purple', display: 'block' }}
                 >
-                  {page}
+                  {page.name}
                 </Button>
               ))}
             </Box>
@@ -203,7 +203,7 @@ function ResponsiveAppBar() {
                     <MenuItem key={setting.name} onClick={
                       event => {
                         if (setting.name == 'Logout') {
-                          localStorage.removeItem('access_token')
+                            localStorage.removeItem('access_token')
                         }
                         navigate(setting.url)
                       }

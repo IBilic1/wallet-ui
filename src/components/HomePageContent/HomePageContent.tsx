@@ -3,7 +3,7 @@ import React from 'react'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
-import homePig from '../../assets/img/homePigV2.png'
+import homePig from '../../assets/img/homePigV3.svg'
 import { useNavigate } from 'react-router-dom'
 
 export default function HomePageContent() {

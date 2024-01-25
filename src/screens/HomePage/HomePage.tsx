@@ -17,6 +17,7 @@ import ProductPage from '../../components/ProductPage/ProductPage'
 import Tasks from '../../components/Tasks/Tasks'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers'
+import Shop from "../../components/Shop/Shop";
 
 export function HomePage() {
   return (
@@ -37,6 +38,7 @@ export function HomePage() {
               <Route path='about' element={<AboutUs />} />
               <Route path='learn-more' element={<ProductPage />} />
               <Route path='tasks' element={<Tasks />} />
+              <Route path='shop' element={<Shop />} />
             </Routes>
           </Background>
         </LocalizationProvider>

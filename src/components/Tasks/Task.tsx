@@ -8,9 +8,10 @@ import { Chip } from '@mui/material'
 export type TaskProps = {
   title: string,
   image: string,
+  description: string
 }
 
-export default function Task({ title, image }: TaskProps) {
+export default function Task({ title, description, image }: TaskProps) {
   return (
     <div>
       <Card sx={{ maxWidth: 700 }}>
@@ -22,9 +23,10 @@ export default function Task({ title, image }: TaskProps) {
           <Typography gutterBottom variant='h5' component='div'>{title}
           </Typography>
           <Typography variant='body2' color='text.secondary'>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to...
+            {description}
+            {/*Lorem Ipsum is simply dummy text of the printing and typesetting industry.*/}
+            {/*Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,*/}
+            {/*when an unknown printer took a galley of type and scrambled it to...*/}
           </Typography>
         </CardContent>
         <CardActions>
