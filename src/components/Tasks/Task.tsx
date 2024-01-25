@@ -8,10 +8,11 @@ import { Chip } from '@mui/material'
 export type TaskProps = {
   title: string,
   image: string,
+  duration: number;
   description: string
 }
 
-export default function Task({ title, description, image }: TaskProps) {
+export default function Task({ title, description, image, duration }: TaskProps) {
   return (
     <div>
       <Card sx={{ maxWidth: 700 }}>
@@ -30,8 +31,7 @@ export default function Task({ title, description, image }: TaskProps) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Chip label='30 min' style={{ backgroundColor: 'pink' }} />
-          <Chip label='21.01.2024' style={{ backgroundColor: 'pink' }} />
+          <Chip label={duration} style={{ backgroundColor: 'pink' }} />
         </CardActions>
       </Card>
     </div>

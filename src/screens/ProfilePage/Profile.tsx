@@ -13,9 +13,11 @@ const ProfileBox = styled(Box)`
       margin-left: 15px;
 `
 
-const ProfilePage = () => {
+export default function Profile() {
   const { data } = useGetUserQuery()
-  const { data: children } = useGetChildrenQuery()
+  const { data: children, refetch } = useGetChildrenQuery()
+
+  console.log(data)
 
   return (
     <Container maxWidth='md'>
@@ -48,10 +50,9 @@ const ProfilePage = () => {
                 </ProfileBox>
               </Box>
             </Grid>
-
             <Grid item xs={12} sm={6}>
               <Box sx={{ marginTop: '20px' }}>
-                <AddChildren />
+                <AddChildren refetch={refetch}/>
                 <Typography variant='h6' gutterBottom>
                   Group Members
                 </Typography>
@@ -78,7 +79,7 @@ const ProfilePage = () => {
                           shape='circle'
                         />
                       </div>
-                      <Typography variant='caption'>{data?.firstName} {data?.lastName}</Typography>
+                      <Typography variant='caption'>{member?.firstName} {member?.lastName}</Typography>
                     </Grid>
                   ))}
                 </Grid>
@@ -98,7 +99,4 @@ const ProfilePage = () => {
     </Container>
   )
 }
-
-export default ProfilePage
-
 
