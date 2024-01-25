@@ -2,12 +2,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { AddUserTask, UserTask } from '../../types/auth/types'
 
 const baseQuery = (url: string) => {
-  const access_token = localStorage.getItem('access_token');
-
   return fetchBaseQuery(
     {
       baseUrl: url,
       prepareHeaders: async (headers) => {
+        const access_token = localStorage.getItem('access_token');
         headers.append('Origin', 'http://localhost:3000');
         if (access_token && access_token !== "undefined") {
           headers.append('Authorization', 'Bearer ' + access_token);

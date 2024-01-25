@@ -8,9 +8,13 @@ import Typography from '@mui/material/Typography'
 import { useSnackbar } from 'notistack'
 import { Dialog, DialogContent, DialogTitle } from '@mui/material'
 import { useAddUserMutation } from '../../store/query/user.query'
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 
-export default function AddChildren() {
+export type AddChildrenProps = {
+  refetch: () => void
+}
+
+export default function AddChildren({ refetch }: AddChildrenProps) {
   const { enqueueSnackbar } = useSnackbar()
   const navigate = useNavigate()
 
@@ -50,9 +54,10 @@ export default function AddChildren() {
         firstName: data.get('firstName') as string,
         lastName: data.get('lastName') as string,
         role,
+      }).then(()=>{
+        refetch()
+        handleClose()
       })
-      handleClose()
-      window.location.reload();
     }
   }
   const [open, setOpen] = React.useState(false)
